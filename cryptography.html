@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Cryptography</title>
-	
+
 	<style>
 
 	div.overview {
@@ -17,7 +17,7 @@
 	div.intro {
 		color:blue;
 	}
-	
+
 	div.objectives {
 		color:green;
 	}
@@ -25,12 +25,35 @@
 	div.relevance {
 		color:red;
 	}
-		
+
+
+	        a { color:blue; }
+	            a:hover { color:red; }
+
+	        h1 { font-size:1.1em; text-align:center; }
+
+	        td { vertical-align:top; font-size:medium; padding:20px; }
+
+	        ul { margin:0; padding:0; }
+
+	        li { margin-top:20px; }
+
+	        body { font-family:verdana; font-size:medium; text-align:left; }
+
+	            #navigator { text-align:left; width:1500px; margin:auto; }
+	            #main { text-align:left; width:1500px; margin:auto; }
+
 	</style>
 
 </head>
 
 <body>
+
+
+	    <div id="navigator">
+	        <p><a href="https://antonrasmussen.github.io">antonrasmussen.github.io:</a> > CYSE462_notes > Cryptography</p>
+
+	    </div><!--navigator-->
 
 	<div class="overview">
 	<!--Module 10.0-->
@@ -41,7 +64,7 @@
 			During the first half of the semester, we focused on basic networking principles to prepare you to understand the attacks and defenses prevalent in cybersecurity.   Now, we're turning our attention to particular attacks and defense techniques.  Since our textbook is primarly a networking text, in this half of the course, we will rely largely on a number of high-quality instructional videos from ProfessorMesser.com to cover the basic material. We will continue to have readings from the textbook, but they will be shorter than in the first half of the semester.
 		</p>
 
-		<p>	
+		<p>
 			In the [transcript] below, I introduce this second half of the semester.
 		</p>
 
@@ -143,7 +166,7 @@
 	<div class="symmetric_key_encryption">
 	<!--Module 10.2-->
 		<p>
-			Here we're looking at symmetric encryption ciphers, meaning that the same key is used for both encryption and decryption. 
+			Here we're looking at symmetric encryption ciphers, meaning that the same key is used for both encryption and decryption.
 		</p>
 		<p>
 			There are two broad classes of symmetric key encryption techniques, stream ciphers and block ciphers. The video below gives a brief overview of each. For the rest of this topic, we'll focus on block ciphers. We'll discuss stream ciphers later when we look at wireless security.
@@ -188,7 +211,7 @@
 		<p>
 			Watch these two videos for an intro to symmetric vs. asymmetric (video 1) and public and private keys (video 2). <!--Insert videos-->
 		</p>
-		
+
 		<p>
 			<em id="video_quote">“Our encryption methods will generally use either symmetric encryption or asymmetric encryption, and sometimes both! In this video, you’ll learn the advantages and disadvantages when using symmetric or asymmetric encryption types.”</em>
 		</p>
@@ -215,13 +238,13 @@
 			<p>
 				To decrypt the message, Bob applies his private key to what Alice sent:
 			</p>
-			
+
 			<p>
 				KB- (KB+(m)) = m
 			</p>
 
 			<p>
-				This operation also works in reverse.  If Alice applies her private key to a message, anyone can decipher the ciphertext, but only with Alice's public key. 
+				This operation also works in reverse.  If Alice applies her private key to a message, anyone can decipher the ciphertext, but only with Alice's public key.
 			</p>
 
 			<p>
@@ -245,7 +268,7 @@
 		<p>RSA public key cryptography consists of three parts: 1) key generation, 2) encryption, and 3) decryption</p>
 
 		<h3>Key Generation</h3>
-		
+
 		<ul>
 			<li>Choose two large prime numbers, p and q, which you keep secret</li>
 			<li>n = p * q</li>
@@ -261,7 +284,7 @@
     			<li>private key, K- = (n, d)</li>
     		</ul>
        	</ul>
-    	
+
 
     	<h3>Encryption/Decryption</h3>
 
@@ -357,7 +380,7 @@
 
 	<p>Now, let's combine encryption with digital signatures.  Let's say that Alice wants to send a private message to Bob and ensure that Bob knows that it's really from Alice.</p>
 
-	<p>Alice would first sign the message, using her private key (can only be decrypted with Alice's public key).  Then, she encrypts the signed message with Bob's public key (can only be decrypted with Bob's private key).</p>  
+	<p>Alice would first sign the message, using her private key (can only be decrypted with Alice's public key).  Then, she encrypts the signed message with Bob's public key (can only be decrypted with Bob's private key).</p>
 
 	<p>So, Alice would send this to Bob: KB+ (KA-(m))</p>
 
@@ -451,7 +474,7 @@
 		<td>CCMP</td>
 	</tr>
 	</table>
-	
+
 
 
 	<p>For a description of the differences between WEP and WPA, read the article “The Differences Between WEP and WPA” at http://www.webopedia.com/DidYouKnow/Computer_Science/2007/WEP_WPA_wireless_security.asp</p>
@@ -531,7 +554,7 @@
     </div> <!--reading assignments-->
 
     <div class="learning_checks">
-    	
+
     	<h2>Learning Checks</h2>
 
     	<ul id="intro">
