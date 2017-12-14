@@ -1,0 +1,428 @@
+	<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Application Attacks</title>
+	</head>
+	
+	<body>
+
+
+
+		<div id="navigator">
+			<p><a href="https://antonrasmussen.github.io">antonrasmussen.github.io:</a> > CYSE462_notes > Application Attacks</p>
+
+		</div><!--navigator-->
+
+		<div class="overview">
+		<!--Module 12.0-->
+
+			<h2>Overview</h2>
+
+			<p>
+				This module takes our background knowledge of the Internet and explains specific vulnerabilities found in some of our most essential Internet applications and functions.  We will look at vulnerabilities in web applications, databases, DNS, and BGP and potential defenses for each of these. 				
+			</p>
+
+			<p>In this module, we will be discussing various types of application attacks.&nbsp; Most of the attacks we will discuss focus on the web and HTTP, but we will also look at attacks on DNS and BGP.</p>
+
+			<p>This topic is out of scope for our textbook, so this week we will mainly read online articles and references and view several videos.</p>
+
+			<p>The Open Web Application Security Project (OWASP) has developed an extensive wiki that includes references for many web attacks and vulnerabilities.&nbsp; I encourage you to take a look at the following set of resources (some of these articles will be assigned later):</p>
+
+			<ul>
+				<li>security attacks - <a href="https://www.owasp.org/index.php/Category:Attack" target="_blank">https://www.owasp.org/index.php/Category:Attack</a></li>
+				<li>security vulnerabilities - <a href="https://www.owasp.org/index.php/Category:Vulnerability" target="_blank">https://www.owasp.org/index.php/Category:Vulnerability</a></li>
+			</ul>
+
+			<h3>Reading Assignment:</h3>
+
+			<ul>
+				<li>To get started, read OWASP&#x2019;s list of top 10 vulnerabilities from 2013, <a href="https://www.owasp.org/index.php/Top_10_2013-Top_10" target="_blank">https://www.owasp.org/index.php/Top_10_2013-Top_10</a></li>
+			</ul>
+
+			<h3>Learning Check</h3>
+
+			<ul>
+				<li>What are the top 10 vulnerabilities for 2013 as compiled by OWASP?</li>
+				<li>What is an injection flaw?</li>
+				<li>What is a XSS flaw?</li>
+				<li>What is a CSRF attack?</li>
+			</ul>
+
+		</div> <!--overview-->
+
+		<div class="objectives">
+
+
+			<p>At the end of this module, students will be able to:</p>
+
+			<ul>
+				<li>Identify security vulnerabilities in web applications and outline their potential defenses</li>
+				<li>Identify security vulnerabilities in databases and outline their potential defenses</li>
+				<li>Identify security vulnerabilities in DNS and outline their potential defenses</li>
+				<li>Identify security vulnerabilities in the BGP Internet routing protocol and outline their potential defenses</li>
+			</ul>
+
+		</div> <!--objectives-->
+
+		<div class="relevance">
+			<p>
+				<p>We are under attack!&nbsp; Attackers are trying to get us to give them our private information.&nbsp; There are many ways this can be done without us even knowing, from attacking the DNS system in order to send us to malicious web sites to using web security vulnerabilities to access our sensitive information stored on others&rsquo; servers.</p>
+			</p>
+		
+		</div> <!--relevance-->
+
+
+		<div class="http_attacks">
+		<!--Module 12.2-->
+
+			<h2>HTTP Attacks</h2>
+			<p>We&#x2019;re going to talk about some HTTP attacks, particularly those that involve JavaScript and AJAX.</p>
+
+			<p>First, let&apos;s cover a couple important things about JavaScript and AJAX.&nbsp; JavaScript is code that a web browser executes.&nbsp; Typically a user visits a webpage that has JavaScript code embedded or as an embedded object.&nbsp; The browser downloads the code and executes it to perform some function on the webpage.&nbsp; JavaScript is powerful and is widely used, but we have to be careful to avoid some of its vulnerabilities.&nbsp;</p>
+
+			<p>AJAX is a set of web development techniques for creating dynamic web pages and web applications.&nbsp; Using AJAX, a web client can send data to or retrieve data from a web server in the background without the user explicitly issuing a new request or reloading the page.&nbsp; Essentially, the JavaScript program running in the browser can create its own HTTP requests based on user interaction (choosing an item in a drop-down menu, clicking a button, etc.).&nbsp; These requests can trigger server-side scripts (e.g., PHP, Python) that result in HTTP responses back to the browser.</p>
+
+			<p>One example of AJAX that you&apos;ve used before is type-ahead search.&nbsp; Each time you press a key in the search box, an HTTP request is sent to the server to request possible completions of the work you are typing.&nbsp; The server will execute a script to find the completions and then it sends back an HTTP response with the list.&nbsp; The JavaScript in the web browser will then display the list as a drop-down.</p>
+
+
+			<img src='type-ahead.png' alt="" border="0" width="534" height="96" />
+
+			<h3>Learning Check</h3>
+
+			<ul>
+				<li>What is a cross-site scripting (XSS) attack?</li>
+				<li>What is a non-persistent XSS attack?</li>
+				<li>What is persistent XSS attack?</li>
+				<li>What is the difference between DOM based XSS, non-persistent XSS, and persistent XSS attacks?</li>
+				<li>What are some ways that you can protect against XSS?</li>
+				<li>Why do attackers URL Encode their malicious payload?</li>
+				<li>What is session hijacking?</li>
+				<li>What are some ways that you can protect against session hijacking?</li>
+				<li>What is a Cross-site Request Forgery (CSRF) attack?</li>
+				<li>How can CSRF attacks be prevented?</li>
+				<li>What is the main difference between XSS attacks and CSRF attacks?</li>
+			</ul>
+
+			<h3>Cross-Site Scripting (XSS) Attacks</h3>
+
+			<p>Watch the following Professor Messer video for an overview of XSS attacks, including a demo.&nbsp; In the demo, he uses the WebGoat tool, which is available at <a href="https://www.owasp.org/index.php/Webgoat" target="_blank">https://www.owasp.org/index.php/Webgoat</a></p>
+
+			<p>Professor Messer, &#x201C;<a href="http://www.professormesser.com/security-plus/sy0-401/cross-site-scripting-2/" target="_blank">Cross-Site Scripting</a>&#x201D;, Sep 2014</p>
+
+			<ul>
+				<li>12:34
+					<ul>
+						<li>2:13 &#x2013; 3:50 &#x2013; non-persistent XSS</li>
+						<li>3:50 &#x2013; 4:57 &#x2013; persistent XSS&nbsp;</li>
+						<li>4:57 &#x2013; 6:48 &#x2013; MySpace JavaScript Obfuscation attack</li>
+						<li>6:48 &#x2013; 11:10 &#x2013; demo</li>
+						<li>11:10 &#x2013; 12:34 &#x2013; how to protect against XSS attacks</li>
+					</ul>
+				</li>
+				<li><a href="http://www.professormesser.com/security-plus/sy0-401/cross-site-scripting-2/" target="_blank">http://www.professormesser.com/security-plus/sy0-401/cross-site-scripting-2/</a></li>
+				<li>&#x201C;Browser security flaws can allow information to be inappropriately shared between web sites. In this video, you&#x2019;ll learn about the different types of cross-site scripting and how to protect yourself against XSS.</li>
+			</ul>
+
+			<p>Watch the following Lynda.com video on Cross-Site Scripting</p>
+
+			<ul>
+				<li>4:54</li>
+				<li><a href="http://www.lynda.com/Web-Development-tutorials/Cross-site-scripting-XSS/133330/163855-4.html" target="_blank">http://www.lynda.com/Web-Development-tutorials/Cross-site-scripting-XSS/133330/163855-4.html</a></li>
+				<li>To login to lynda.com from outside ODU, first visit&nbsp;<a href="https://www.odu.edu/ts/lynda" target="_blank">https://www.odu.edu/ts/lynda</a></li>
+			</ul>
+
+			<p><em>Note that you can view the transcript of the lynda.com videos by clicking on the &quot;Transcript&quot; tab under the video.</em></p>
+
+			<h3>Reading Assignment: </h3>
+
+			<ul>
+				<li>XSS overview in the Top 10 list, <a href="https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS)" target="_blank">https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS)</a></li>
+				<li>Cross-Site Scripting (XSS),&nbsp;<a href="http://projects.webappsec.org/w/page/13246920/Cross%20Site%20Scripting" target="_blank">http://projects.webappsec.org/w/page/13246920/Cross%20Site%20Scripting</a></li>
+			</ul>
+
+			<h3>Cookie Security</h3>
+			<p>Because cookies are sent in plain text, someone using packet sniffing could capture a user&#x2019;s cookies.&nbsp; If a web site uses only a cookie as a login, the stolen cookie could be used to simulate the same session by manually setting the cookie.&nbsp; The server can&#x2019;t tell the difference between the original cookie and the stolen one, so it allows the attacker to access the user&#x2019;s information.&nbsp; This is called <em>session hijacking.</em></p>
+
+			<p>Watch this video for an overview of session hijacking using cookies.&nbsp; This video also includes a short demo.</p>
+
+			<p>Professor Messer, &quot;<a href="http://www.professormesser.com/security-plus/sy0-401/cookies-header-manipulation-and-session-hijacking-2/" target="_blank">Cookies, Header Manipulation, and Session Hijacking</a>&quot;, Sep 2014</p>
+
+			<ul>
+				<li>11:02
+					<ul>
+						<li>cookies &#x2013; 0:00-2:14</li>
+						<li>session hijacking &#x2013; 2:14-3:31</li>
+						<li>header manipulation &#x2013; 3:31-4:50</li>
+						<li>demo &#x2013; 4:50-8:42</li>
+						<li>protecting against session hijacking &#x2013; 8:42-11:02</li>
+					</ul>
+				</li>
+				<li><a href="http://www.professormesser.com/security-plus/sy0-401/cookies-header-manipulation-and-session-hijacking-2/" target="_blank">http://www.professormesser.com/security-plus/sy0-401/cookies-header-manipulation-and-session-hijacking-2/</a></li>
+				<li>If you have the right information, it may be possible to gain access to a user&#x2019;s account information without any authentication. In this video, you&#x2019;ll learn about session hijacking and I&#x2019;ll demonstrate a live session hijack by gaining access to cookie information and manipulating HTTP headers.</li>
+			</ul>
+
+			<p>Related to XSS and session hijacking are Cross-Site Request Forgery (CSRF) attacks.&nbsp; This attack has users unknowingly issue malicious web requests once they are authenticated into a web service.&nbsp; Potential actions could range from transferring money (in a bank website) to changing the contact email address.</p>
+
+			<p>Watch the following Lynda.com video on CSRF</p>
+
+			<ul>
+				<li>6:26</li>
+				<li><a href="http://www.lynda.com/Web-Development-tutorials/Cross-site-request-forgery-CSRF/133330/163856-4.html" target="_blank">http://www.lynda.com/Web-Development-tutorials/Cross-site-request-forgery-CSRF/133330/163856-4.html</a></li>
+				<li>To login to lynda.com from outside ODU, first visit&nbsp;<a href="https://www.odu.edu/ts/lynda" target="_blank">https://www.odu.edu/ts/lynda</a></li>
+			</ul>
+
+			<p>For a concrete example of a CSRF attack, see the &#x201C;Sample scenario&#x201D; section in <a href="https://www.owasp.org/index.php/Testing_for_CSRF_(OTG-SESS-005)" target="_blank">https://www.owasp.org/index.php/Testing_for_CSRF_(OTG-SESS-005)</a></p>
+
+			<h3>Reading Assignment:</h3>
+
+			<ul>
+				<li>Cookies and security, <a href="http://www.nczonline.net/blog/2009/05/12/cookies-and-security/" target="_blank">http://www.nczonline.net/blog/2009/05/12/cookies-and-security/</a></li>
+				<li>Session hijacking attack at OWASP, <a href="https://www.owasp.org/index.php/Session_hijacking_attack" target="_blank">https://www.owasp.org/index.php/Session_hijacking_attack</a></li>
+				<li>CSRF overview in the Top 10 list, <a href="https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)" target="_blank">https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)</a></li>
+				<li>CSRF at OWASP, <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)" target="_blank">https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)</a></li>
+			</ul>
+
+		</div> <!--http_attacks-->
+
+		<div class = "sql_injection">
+		<!--Module 12.3-->
+
+			<h2>SQL Injection</h2>
+			<p>This topic covers database vulnerabilities, in particular SQL injection.&nbsp; If you are not familiar with SQL, you should look at an overview of the basic terminology at <a href="http://www.w3schools.com/sql/sql_syntax.asp" target="_blank">http://www.w3schools.com/sql/sql_syntax.asp</a></p>
+
+			<p>The Professor Messer video below gives a brief overview of code injection and SQL injection.&nbsp; You can stop at the 2:10 mark.</p>
+
+			<p>Professor Messer, &quot;<a href="http://www.professormesser.com/security-plus/sy0-401/sql-injection-xml-injection-and-ldap-injection-2/" target="_blank">SQL Injection, XML Injection, and LDAP Injection</a>&quot;, Sep 2014</p>
+
+			<ul>
+				<li>2:10
+				<ul>
+					<li>General code injection &ndash; 0:00-1:10</li>
+					<li>SQL injection &ndash; 1:10-2:10</li>
+				</ul>
+			</li>
+				<li><a href="http://www.professormesser.com/security-plus/sy0-401/sql-injection-xml-injection-and-ldap-injection-2/" target="_blank">http://www.professormesser.com/security-plus/sy0-401/sql-injection-xml-injection-and-ldap-injection-2/</a></li>
+				<li>Database security can sometimes be circumvented by poorly designed software. In this video, you&rsquo;ll learn how SQL injection, XML injection, and LDAP injection can get data from the most secure databases.</li>
+			</ul>
+
+			<h3>Example</h3>
+
+			<p>Let&rsquo;s suppose I have some PHP code on my webserver that takes a username and password from a web form and uses it to issue a MySQL query.</p>
+
+			<pre>
+      			$uname = $_POST[&#39;username&#39;];
+      			$pwd = $_POST[&#39;password&#39;];
+      			$query = &quot;SELECT * FROM sid_user_details WHERE username=&#39;&quot; . $uname . &quot;&#39; AND password=&#39;&quot; . $pwd . &quot;&#39;&quot;;</pre>
+
+			<p>If I enter <tt>x</tt> as the username and <tt>x&#39; OR 1=1 limit 1 --</tt> as the password, then the SELECT statement will be executed as</p>
+
+			<pre>
+  				SELECT * FROM sid_user_details WHERE username=&#39;x&#39; AND password=<strong>&#39;x&#39; OR 1=1 limit 1 --</strong> &#39;;</pre>
+
+			<p>This results in the WHERE condition being always true (because of <tt>OR 1=1</tt>).&nbsp; The key in SQL injection attacks is the use of the <tt>&#39;</tt> character, which will end the current string and then allow any characters that follow to be interpreted as part of the SQL statement.</p>
+
+			<p>Watch the following Lynda.com video on SQL injection</p>
+
+			<ul>
+				<li>6:33</li>
+				<li><a href="http://www.lynda.com/Web-Development-tutorials/SQL-injection/133330/163857-4.html" target="_blank">http://www.lynda.com/Web-Development-tutorials/SQL-injection/133330/163857-4.html</a></li>
+				<li>To login to lynda.com from outside ODU, first visit&nbsp;<a href="https://www.odu.edu/ts/lynda" target="_blank">https://www.odu.edu/ts/lynda</a></li>
+			</ul>
+
+			<p>How can you prevent these types of attacks?&nbsp; Much of this is based on properly validating input and preventing data from web forms from directly modifying SQL statements.&nbsp; OWASP has provided a library that can help programmers write lower-risk applications.&nbsp; See <a href="https://www.owasp.org/index.php/ESAPI" target="_blank">https://www.owasp.org/index.php/ESAPI</a> for more information.</p>
+
+			<p>Databases may also be susceptible to insider attacks, such as <em>privilege abuse</em>.&nbsp; The attacker (a malicious insider) has legitimate access to the database, but attacks the database in order to get elevated privileges (i.e., being able to run commands that the user is not normally authorized to do).&nbsp;</p>
+
+			<h3>Reading Assignment:</h3>
+
+			<ul>
+				<li>Injection in the Top 10 list, <a href="https://www.owasp.org/index.php/Top_10_2013-A1-Injection" target="_blank">https://www.owasp.org/index.php/Top_10_2013-A1-Injection</a></li>
+				<li>SQL Injection at OWASP, <a href="https://www.owasp.org/index.php/SQL_Injection" target="_blank">https://www.owasp.org/index.php/SQL_Injection</a></li>
+				<li>&ldquo;Hacker group claims to have looted $100k via SQL injection attack&rdquo;, SC Magazine, October 2013, <a href="http://www.scmagazine.com/hacker-group-claims-to-have-looted-100k-via-sql-injection-attack/article/317412/" target="_blank">http://www.scmagazine.com/hacker-group-claims-to-have-looted-100k-via-sql-injection-attack/article/317412/</a></li>
+				<li>&ldquo;SQL Injection / Hacking on Healthcare.gov&rdquo;, Sites Done Right Blog, Nov 2013, <a href="https://sitesdoneright.com/blog/2013/11/sql-injection-hacking-on-healthcare-gov" target="_blank">https://sitesdoneright.com/blog/2013/11/sql-injection-hacking-on-healthcare-gov</a></li>
+			</ul>
+
+			<h3>Learning Check</h3>
+
+			<ul>
+				<li>What is SQL injection?</li>
+				<li>What are some things that an attacker could do using SQL injection?</li>
+				<li>How can we prevent SQL injection?</li>
+				<li>What is database privilege abuse?</li>
+			</ul>
+
+			<p><span>In each video below, there is a demonstration of a different type of SQL injection technique using a test website.</span></p>
+
+			<p><iframe allowfullscreen frameborder="0" width="560" height="315" src="https://www.youtube.com/embed/h-9rHTLHJTY"></iframe></p>
+
+
+			<p><small><a href="https://www.youtube.com/watch?v=h-9rHTLHJTY">SQL Injection Basics Demonstration, part 1</a></small><br>
+			<small>Brian Contos</small><br>
+			<small>April 2009</small><br>
+			<small>6:44</small><br>
+			<small>Focuses on SQL injection into a username/password form</small></p>
+
+			<p><iframe allowfullscreen frameborder="0" width="560" height="315" src="https://www.youtube.com/embed/w3xbytAisB0"></iframe></p>
+
+			<p><small><a href="https://www.youtube.com/watch?v=w3xbytAisB0">SQL Injection Basics Demonstration, part 2</a></small><br>
+			<small>Brian Contos</small><br>
+			<small>April 2009</small><br>
+			<small>9:52</small><br>
+			<small>Focuses on SQL injection using the URL parameter string</small></p>
+
+			<p><iframe allowfullscreen frameborder="0" width="560" height="315" src="https://www.youtube.com/embed/aixvtFbaVhY"></iframe></p>
+
+			<p><small><a href="https://www.youtube.com/watch?v=aixvtFbaVhY">SQL Injection Basics Demonstration, part 3</a></small><br>
+			<small>Brian Contos</small><br>
+			<small>April 2009</small><br>
+			<small>5:15</small><br>
+			<small>Focuses on SQL injection using a website&#x2019;s search form</small></p>
+
+
+		</div> <!--sql_injection-->
+
+		<div class = "dns_attacks">
+		<!--Module 12.4-->
+
+			<h2>DNS Attacks</h2>
+
+			<h3>DNS Cache Poisioning</h3>
+
+			<p>We&#x2019;ve seen how important DNS is to the Internet, so it is a high-value target for attack.&nbsp; The attacks we&#x2019;ll discuss are all based on cache poisoning.&nbsp; The basic idea behind DNS cache poisoning is that an attacker hears a DNS request and then sends DNS replies with bogus A and sometimes NS resource records that are then cached by the requester.</p>
+
+			<p>Watch this short video about the basics of DNS cache poisoning attacks.</p>
+
+			<p><iframe allowfullscreen frameborder="0" width="560" height="315" src="https://www.youtube.com/embed/1d1tUefYn4U"></iframe></p>
+
+			<p><small><a href="http://www.youtube.com/watch?v=1d1tUefYn4U">DNS cache poisoning attack</a></small><br>
+			<small>Check Point Software Technologies, </small><br>
+			<small>August 2008</small><br>
+			<small>1:45</small><br>
+			<small>This video gives a simple example of a DNS cache poisoning attack.</small></p>
+
+			<p>In 2008, security researcher Dan Kaminsky discovered &#x201C;better&#x201D; way to perform DNS cache poisoning.&nbsp; It involves sending many requests for a known non-existent hostname to a DNS server, thus giving the attacker time to poison the cache.</p>
+
+			<p>Watch this video from Princeton CS professor and security researcher, Nick Feamster.&nbsp; This video some different terminology than we&apos;ve used for the DNS servers:</p>
+
+			<ul>
+				<li>stub resolver - client sending the request</li>
+				<li>recursive resolver - client&apos;s local DNS server that is handling the DNS requests recursively</li>
+				<li>S.O.A - authoritative name server that holds the requested A record</li>
+			</ul>
+
+			<p><iframe allowfullscreen  frameborder="0" width="560" height="315" src="https://www.youtube.com/embed/G8ah_KpF8eE"></iframe></p>
+
+			<p><small><a href="http://www.youtube.com/watch?v=G8ah_KpF8eE">DNS cache poisoning</a></small><br>
+			<small>Nick Feamster</small><br>
+			<small>4:50</small></p>
+
+			<h3>Reading Assignment:</h3>
+
+			<ul>
+				<li>The &quot;DNS Vulnerabilities&quot; sidebar in the textbook (pgs. 143-144 in 6th edition, pgs. 145-146 in 5th edition).&nbsp;</li>
+				<li>&#x201C;An Illustrated Guide to the Kaminsky DNS Vulnerability&#x201D; by Steve Friedl, <a href="http://unixwiz.net/techtips/iguide-kaminsky-dns-vuln.html" target="_blank">http://unixwiz.net/techtips/iguide-kaminsky-dns-vuln.html</a></li>
+			</ul>
+
+			<h3>Learning Check</h3>
+
+			<ul>
+				<li>What is cache poisoning?</li>
+				<li>Why is DNS susceptible to cache poisoning?</li>
+				<li>What is pharming?</li>
+				<li>What information must an attacker have about a DNS request to successfully poison a DNS cache?</li>
+				<li>What is Kaminsky&#x2019;s cache poisoning attack?</li>
+				<li>What is the short-term defense against cache poisoning attacks?&nbsp; Why does this defense work?</li>
+				<li>What could prevent outside attackers from launching a DNS cache poisoning attack?</li>
+				<li>What is DNSSEC?</li>
+				<li>What are the goals of DNSSEC?</li>
+				<li>Does DNSSEC encrypt the DNS request/response?</li>
+				<li>Why is it important that all servers in the chain from the root to local authoritative servers use DNSSEC?</li>
+				<li>What do we mean by a chain of trust?</li>
+				<li>What is the zone signing key (ZSK)?</li>
+				<li>What is the key signing key (KSK)?</li>
+				<li>What are the advantages of separating the functions of KSK and ZSK?</li>
+			</ul>
+
+			<h3>DNSSEC</h3>
+
+			<p>We have seen the importance of DNS and ways in which DNS can be attacked through cache poisoning.&nbsp; This topic explores DNS security &#x2013; how can DNS be protected?</p>
+
+			<p>DNS Security Extensions (DNSSEC) provides a method for authentication and integrity for DNS responses.</p>
+
+			<p>Watch this short video demonstrating how DNS queries are resolved when using DNSSEC.</p>
+
+			<p><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/uPVezN4SBBo" width="560"></iframe></p>
+
+			<p><small><a href="http://www.youtube.com/watch?v=uPVezN4SBBo">Resolving DNS with DNSSEC</a></small><br>
+			<small>July 2012</small><br>
+			<small>2:12</small></p>
+
+			<h3>Reading Assignment: </h3>
+
+			<ul>
+				<li>&quot;DNSSEC: An Introduction&quot;, CloudFlare, <a href="https://blog.cloudflare.com/dnssec-an-introduction/" target="_blank">https://blog.cloudflare.com/dnssec-an-introduction/</a></li>
+				<li>&#x201C;DNSSEC &#x2013; What is it and Why is it Important?&#x201D;, ICANN, <a href="http://www.icann.org/en/about/learning/factsheets/dnssec-qaa-09oct08-en.htm" target="_blank">http://www.icann.org/en/about/learning/factsheets/dnssec-qaa-09oct08-en.htm</a></li>
+			</ul>
+
+			
+
+		</div><!--dns_attacks-->
+
+		<div class = "bgp_attacks">
+		<!--Module 12.5-->
+
+			<h2>BGP Attacks</h2>
+
+			<p>Because of BGP&apos;s role in enabling routing between ASes, it is a prime target for attack.&nbsp; The most common type of attack on BGP is a denial-of-service (DoS) attack.&nbsp; The basic idea is to overload routers with excessive numbers of BGP update messages or sending overly large route advertisements.</p>
+
+			<h3>Reading Assignment</h3>
+
+			<ul>
+				<li>Why Is It Taking So Long to Secure Internet Routing?, Sharon Goldberg, <em>ACM Queue</em>, Sep 2014, <a href="http://queue.acm.org/detail.cfm?id=2668966" target="_blank">http://queue.acm.org/detail.cfm?id=2668966</a></li>
+				<li>&quot;BGP spoofing - why nothing on the internet is actually secure&quot;, ZDNet, Aug 2013, <a href="http://www.zdnet.com/article/bgp-spoofing-why-nothing-on-the-internet-is-actually-secure/" target="_blank">http://www.zdnet.com/article/bgp-spoofing-why-nothing-on-the-internet-is-actually-secure/</a></li>
+			</ul>
+
+			<h3>Learning Check</h3>
+
+			<ul>
+				<li>What are some of the attacks that can be launched against BGP?</li>
+				<li>How can bogus route injection (or subprefix hijack) be used to attack BGP?&nbsp; How was is done by Pakistan in 2008?</li>
+				<li>What is a blackhole?</li>
+				<li>What is a BGP spoofing attack?</li>
+				<li>What are some possible defenses for BGP?</li>
+			</ul>
+
+
+		</div> <!--bgp_attacks-->		
+
+
+
+		<style>
+
+		a { color:blue; }
+	
+			a:hover { color:red; }
+
+		h1 { font-size:1.1em; text-align:center; }
+
+		body { font-family:verdana; font-size:medium; text-align:left; }
+
+	    	#navigator { text-align:left; margin:auto; }
+
+			div.overview { color:black; }
+
+			#video_transcript { color:grey; }
+
+			div.intro p {	color:blue; }
+
+			div.objectives { color:green; }
+
+			div.relevance { color:red; }
+		
+		</style>
+	
+	</body>
+
+
+</html>

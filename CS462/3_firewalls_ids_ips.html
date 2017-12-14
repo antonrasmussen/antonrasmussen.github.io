@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Firewalls, Intrusion Detection System/Intrusion Prevention System (IDS/IPS)</title>
+	</head>
+	
+	<body>
+
+
+
+		<div id="navigator">
+			<p><a href="https://antonrasmussen.github.io">antonrasmussen.github.io:</a> > CYSE462_notes > Firewalls, Intrusion Detection System/Intrusion Prevention System (IDS/IPS) </p>
+
+		</div><!--navigator-->
+
+		<div class="overview">
+		<!--Module 13.0-->
+
+			<h2>Overview</h2>
+
+			<p>
+				This module looks at ways that devices can be used to protect a network.  We will look at firewalls that use packet filtering to deny malicious packets access to the network.  We will also look at more intelligent methods used by intrusion detection systems/intrusion prevention systems (IDS/IPS) to detect malicious traffic.  These include statistical-based, expert-based, and signature-based methods for finding anomalous network traffic.
+			</p>
+
+		</div> <!--overview-->
+
+		<div class="objectives">
+
+		<h3>Objectives</h3>
+
+			<p>At the end of this module, students will be able to:</p>
+
+			<ul>
+				<li>Describe how the mapping operation of Network Address Translation (NAT) is performed.</li>
+				<li>Explain the purpose of a firewall.</li>
+				<li>Distinguish between firewalls that offer packet filtering, proxy gateway, and circuit-level inspection.</li>
+				<li>Distinguish between stateless firewalls and stateful firewalls.</li>
+				<li>Explain the purpose of an Intrusion Detection System/Intrusion Prevention System (IDS/IPS) and contrast it with a firewall.</li>
+				<li>Distinguish between host-based and network-based IDS/IPS.</li>
+				<li>Explain the function and operation of a Honeypot.</li>
+				<li>Describe the operation of SNORT, a widely used IDS/IPS.</li>
+			</ul>
+
+
+
+		</div> <!--objectives-->
+
+
+
+		<div class="relevance">
+
+			<h3>Relevance</h3>
+			<p>
+				<p>Because we are under attack, network administrators need tools to help protect the network.&nbsp; Firewalls and IDS/IPS can be used to offer some amount of protection against malicious attackers.</p>
+			</p>
+		
+		</div> <!--relevance-->
+
+
+		<div class="network_address_translation">
+		<!--Module 13.1-->
+
+			<h2>Network Address Translation</h2>
+
+			<p>Before we talk about firewalls and IDS/IPS, we need to discuss Network Address Translation (NAT).&nbsp; We mentioned NAT previously in the context of private addresses (see <a href="../../../modules/6/6/2" target="_blank">Module 6, Topic 6</a>&nbsp;for a review).&nbsp; NAT can be used to allow multiple hosts to share a single IP address.&nbsp;</p>
+
+			<p>Watch the narrated slideshow below (<a href="http://www.cs.odu.edu/~mweigle/courses/cs562/video-transcripts/Module13-01-notes.pdf" target="_blank">transcript</a>) for an overview of NAT.</p>
+
+
+			<p>NAT is somewhat controversial because it changes IP addresses and port numbers (in network layer and transport layer headers).&nbsp; Remember that these headers are normally not modified by standard routers.</p>
+
+			<p>We&apos;re discussing NAT here because it can function as a cheap firewall since private IPs are not addressable by outside hosts.</p>
+
+			<p><strong>Reading Assignment: </strong>The subsection &quot;Network Address Translation (NAT)&quot; in Section 4.4.2 in the textbook</p>
+
+			<h3>Learning Check</h3>
+
+			<ul>
+				<li>What is the purpose of NAT?</li>
+				<li>What does the NAT translation table contain?</li>
+				<li>Why does NAT need to modify the IP header?</li>
+				<li>Why does NAT need to modify the transport layer (TCP or UDP) header?</li>
+				<li>Name one objection or problem with NAT.</li>
+			</ul>
+
+		</div> <!--network_address_translation-->
+
+		<div class = "firewalls">
+		<!--Module 13.2-->
+
+			<h2>Firewalls</h2>
+<p>Firewalls are devices that are used to block access to particular parts of a network.&nbsp; Firewalls typically operate using rules that can block particular types of traffic (black-list) or allow particular types of traffic (white-list).&nbsp;</p>
+
+<p>Firewalls have three main goals:</p>
+
+<ol>
+	<li>all traffic (from outside to inside and inside to outside) passes through the firewall</li>
+	<li>only authorized traffic will be allowed to pass through the firewall</li>
+	<li>the firewall is immune to penetration</li>
+</ol>
+
+<p>There are three main types of firewalls: traditional packet filters, stateful filters, and application gateways. Each of these will be covered on a separate page in this topic.</p>
+
+<h3>Reading Assignment: </h3>
+
+<ul>
+	<li>Introduction to Section 8.9 &#x201C;Operational Security: Firewalls and IDS&#x201D;</li>
+	<li>Section 8.9.1 &quot;Firewalls&quot;</li>
+</ul>
+
+<h3>Learning Check</h3>
+
+<ul>
+	<li>What is a firewall?</li>
+	<li>What are the three goals of a firewall?</li>
+	<li>What are the three main types of firewalls?</li>
+	<li>What are traditional packet filtering decisions based on?</li>
+	<li>What type of packet filtering rule is set if an organization wants to let its internal clients connect to external servers but wants to prevent external clients from connecting to internal servers?</li>
+	<li>What is an access control list (ACL)?</li>
+	<li>What disadvantage of traditional packet filters do stateful packet filters address?</li>
+	<li>How do stateful filters differ from traditional packet filters?</li>
+	<li>How does a stateful packet filter track a TCP connection?</li>
+	<li>What is a proxy?</li>
+	<li>What is an application gateway?</li>
+	<li>How are application gateways different than packet filters?</li>
+	<li>How does a proxy (or specifically an application gateway) improve network security?</li>
+	<li>Name one disadvantage of application gateways.</li>
+</ul>
+
+<h3>Traditional (Stateless) Packet Filters</h3>
+
+<p>A firewall performing traditional packet filtering will look at each packet separately to determine whether to allow it or block it.&nbsp; This means that the only information that can be used to make the determination is located in the packet header.&nbsp; The packet filter will look at the information available in the packet header and compare that to a set of rules that determine whether or not the packet should be allowed to pass into or out of the network.</p>
+
+<p>Access control lists (ACL) provide the rules that a router/firewall should use when examining packets. Table 8.6 (pg. 734) in the textbook shows an example ACL for a router interface.&nbsp; ACL entries are processed in order from top to bottom.&nbsp; Note that the last row is <em>deny all</em>, so any packet that doesn&apos;t match any of the previous <em>allow</em> rows will be denied.</p>
+
+<p>Let&apos;s look at the first rule:</p>
+
+<p>allow&nbsp; 222.22/16&nbsp;outside of 222.22/16&nbsp;TCP&nbsp;&gt; 1023&nbsp;80&nbsp;any</p>
+
+<p>This is saying that a packet with a source address inside 222.22/16 (which is the organization&apos;s CIDR address) destined for an IP outside of 222.22/16 (so, outside of the organization) using TCP with a source port &gt; 1023 (not a server port) and destination port 80 (default web port) with any TCP flag can be allowed.&nbsp; This allows packets from a web client inside the organization to be sent to a web server outside the organization.</p>
+
+<p>Watch this video for more examples of firewall rules.</p>
+
+<p>Professor Messer, &#x201C;<a href="http://www.professormesser.com/network-plus/n10-005/understanding-firewall-rules/" target="_blank">Understanding Firewall Rules</a>&#x201D;, July 2012</p>
+
+<ul>
+	<li>5:23</li>
+	<li>A firewall uses a specific set of rules to allow or deny traffic flows through the network. In this video, you&#x2019;ll learn about firewall rulebases and we&#x2019;ll examine a firewall rulebase for an Internet-facing web server.</li>
+	<li><a href="http://www.professormesser.com/network-plus/n10-005/understanding-firewall-rules/" target="_blank">http://www.professormesser.com/network-plus/n10-005/understanding-firewall-rules/</a></li>
+</ul>
+
+<h3>Stateful Filtering</h3>
+
+<p>Stateful filters are actually aware of active TCP connections and can improve upon the security provided by traditional stateless packet filters.</p>
+
+<p>Watch this short video to get an overview of stateful firewalls and how they are an improvement over stateless firewalls.</p>
+
+<p>Professor Messer, &#x201C;<a href="http://www.professormesser.com/n10-005/stateful-inspection-and-packet-filtering/" target="_blank">Stateful Inspection and Packet Filtering</a>&#x201D;, July 2012</p>
+
+<ul>
+	<li>2:42</li>
+	<li><a href="http://www.professormesser.com/n10-005/stateful-inspection-and-packet-filtering/" target="_blank">http://www.professormesser.com/n10-005/stateful-inspection-and-packet-filtering/</a></li>
+	<li>&#x201C;Today&apos;s security technologies use different techniques for allowing traffic flows through the network. In this video, you&apos;ll learn about firewall-based stateful inspection and how to perform simple packet filtering in other network devices.&#x201D;</li>
+</ul>
+
+<p><strong><em>Textbook note:</em>&nbsp;</strong>There are a couple of typos in the textbook explanation of Stateful Packet Filters on pg. 735.</p>
+
+<ul>
+	<li>The sentence beginning with &quot;Further suppose...&quot; should read &quot;Futher suppose that this packet has a destination port number 12543 and destination IP address 150.23.23.155.&quot;</li>
+	<li>The sentence beginning with &quot;When this packet reaches...&quot; should point to Table 8.8, not Table 8.7.</li>
+</ul>
+
+<h3>Application Gateways</h3>
+
+
+<p>Application gateways act as a proxy between internal hosts and the public Internet.</p>
+
+<p>An example of a proxy is a web proxy server. Recall in our discussion of web caches and proxy servers (see <a href="../../../modules/4/6/1" target="_blank">Module 4, Topic 6</a>)&nbsp;that a client connects to the proxy, and the proxy then connects to the destination. With a web proxy server, all client requests are sent directly to the proxy instead of the target web server.&nbsp; So, the client maintains a TCP connection with the proxy server, not the web server.&nbsp; Then, the proxy creates and maintains a TCP connection with the web server.&nbsp;Thus, there is never a direct TCP connection between the client and the web server.&nbsp; Everything goes through the proxy.</p>
+
+<p>In the same way, with an application gateway, there is no direct connection between the client and the server, but the client has the illusion of connecting directly to the server.&nbsp; The client is connected to the proxy, and the proxy is connected to the server.&nbsp; For security, this allows the proxy to perform filtering before passing information between the client and server.&nbsp;</p>
+
+
+
+		</div> <!--firewalls-->
+
+		<div class = "ids_ips">
+		<!--Module 13.3-->
+
+			<h2>IDS/IPS</h2>
+
+			<h3>IPS/IDS Overview</h3>
+
+<p>Intrusion Detection Systems (IDS) monitor network traffic and can issue alerts if anomalous traffic is detected.&nbsp; And, as the name implies, Intrusion Prevention Systems (IPS) can be used to block certain types of traffic in order to prevent attacks.&nbsp; IDS/IPS systems are often used together and are positioned behind a firewall as a second line of defense.</p>
+
+<p>Approaches for IDS/IPS can be classified generally as anomaly/behavior-based or signature-based.&nbsp; Anomaly-based systems know what normal traffic looks like and report whenever they see anything out of the ordinary.&nbsp; Signature-based systems rely on having a database of the type of traffic a particular attack has generated and comparing incoming traffic to the signature database.&nbsp; Since a previous instance must be observed, signature-based systems cannot detect zero-day attacks.</p>
+
+
+<div class="odu_divCentered"><div class='odu_assetImageWrapper'  style='width:707px; max-width:707px'><figure class='odu_assetImage'><img src='/courses/201710/cs562/uuid/8e3c07a198efa67e51a01f3ab800663a57ea6e50e75a6b017d3cb744febb73ec7e642480/_assets_/module13-ids.png' alt="" border="0" width="707" height="421" /><figcaption class='odu_assetImageCaption'></figcaption></figure></div></div>
+
+<p><span>Watch this video for an overview of IDS/IPS.</span></p>
+
+<p>Professor Messer, &#x201C;<a href="http://Intrusion Detection and Prevention Systems" target="_blank">Intrusion Detection and Prevention Systems</a>&#x201D;, March 2015</p>
+
+<ul>
+	<li>5:12</li>
+	<li>Securing a network requires vigilance on the network and on each host. In this video, you&#x2019;ll learn about network-based and host-based intrusion detection and intrusion prevention systems.</li>
+	<li><a href="http://www.professormesser.com/network-plus/n10-006/intrusion-detection-and-prevention-systems/" target="_blank">http://www.professormesser.com/network-plus/n10-006/intrusion-detection-and-prevention-systems/</a></li>
+</ul>
+
+<p><strong>Reading Assignment: </strong>Section 8.9.2 &#x201C;Intrusion Detection Systems&#x201D; in the textbook</p>
+
+<h3>Learning Check:</h3>
+
+<ul>
+	<li>What is deep packet inspection?</li>
+	<li>What is the purpose of an Intrusion Detection/Prevention System (IDS/IPS)?</li>
+	<li>What is the difference between an IDS and an IPS?</li>
+	<li>What types of attacks can an IDS detect?</li>
+	<li>What is a DMZ?</li>
+	<li>What advantages are gained by using multiple IDS sensors in a network?</li>
+	<li>What is the basic idea behind a signature-based IDS/IPS?</li>
+	<li>What are some limitations of a signature-based IDS/IPS?</li>
+	<li>What is the difference between signature-based detection and anomaly-based detection?</li>
+	<li>What is Snort?</li>
+	<li>What is important about the community of Snort users?</li>
+</ul>
+
+
+		</div><!--ids_ips-->
+
+		<div class = "honeypots">
+		<!--Module 13.4-->
+
+			<h2>Honeypots</h2>
+			
+
+<p>A honeypot is a system that it set up with the intent to attract attackers.&nbsp; It allows network administrators to collect information about attackers that can then be used to protect the real network.</p>
+
+<p>Watch the following videos for an overview of honeypots.</p>
+
+<p>Professor Messer, &#x201C;<a href="http://www.professormesser.com/n10-005/an-overview-of-honeypots/" target="_blank">An Overview of Honeypots</a>&#x201D;, July 2012</p>
+
+<ul>
+	<li>3:34</li>
+	<li><a href="http://www.professormesser.com/n10-005/an-overview-of-honeypots/" target="_blank">http://www.professormesser.com/n10-005/an-overview-of-honeypots/</a></li>
+	<li>&#x201C;A honeypot can be a useful tool for identifying and collecting data about potential hackers. In this video, you&#x2019;ll learn about honeypot technology and how to share honeypot information across multiple sources.&#x201D;</li>
+</ul>
+
+<p>Lynda.com, &quot;<a href="http://www.lynda.com/Security-tutorials/Implementing-honeypot/410326/445205-4.html" target="_blank">Implementing a Honeypot</a>&quot;</p>
+
+<ul>
+	<li>3:49</li>
+	<li><a href="http://www.lynda.com/Security-tutorials/Implementing-honeypot/410326/445205-4.html" target="_blank">http://www.lynda.com/Security-tutorials/Implementing-honeypot/410326/445205-4.html</a></li>
+	<li>To login to lynda.com from outside ODU, first visit&nbsp;<a href="https://www.odu.edu/ts/lynda" target="_blank">https://www.odu.edu/ts/lynda</a></li>
+</ul>
+
+<p><em>[Optional] &nbsp;</em>For more information, look at some of the resources and tools available at <a href="http://www.projecthoneypot.org/" target="_blank">http://www.projecthoneypot.org/</a> and&nbsp;<a href="http://honeynet.org/project" target="_blank">http://honeynet.org/project</a></p>
+
+<h3>Learning Check:</h3>
+
+<ul>
+	<li>What is a honeypot?</li>
+	<li>How can honeypot help in preventing network attacks?</li>
+	<li>What is the difference between a honeypot and a honeynet?</li>
+</ul>
+</div>
+<div class="clearFix"></div>
+
+
+		</div> <!--honeypots-->		
+
+
+
+		<style>
+
+		a { color:blue; }
+	
+			a:hover { color:red; }
+
+		h1 { font-size:1.1em; text-align:center; }
+
+		body { font-family:verdana; font-size:medium; text-align:left; }
+
+	    	#navigator { text-align:left; margin:auto; }
+
+			div.overview { color:black; }
+
+			#video_transcript { color:grey; }
+
+			div.intro p {	color:blue; }
+
+			div.objectives { color:green; }
+
+			div.relevance { color:red; }
+		
+		</style>
+	
+	</body>
+
+
+</html>

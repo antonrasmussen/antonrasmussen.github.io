@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Authentication</title>
+	</head>
+	
+	<body>
+
+
+
+		<div id="navigator">
+			<p><a href="https://antonrasmussen.github.io">antonrasmussen.github.io:</a> > CYSE462_notes > Authentication</p>
+
+		</div><!--navigator-->
+
+		<div class="overview">
+		<!--Module 14.0-->
+
+			<h2>Overview</h2>
+
+			<p>
+				This module covers authentication, which is focused on verifying someone's identity.  We will look at the Kerberos authentication protocol, including single sign-on, which is used all over the web.  We will also look at recommended password practices and the rise of two-factor authentication techniques.
+			</p>
+
+			<p>
+				This module focuses on authentication and access instead of encryption.&nbsp; It is important to make sure that only authorized users are allowed access inside a network or access to certain machines.&nbsp;
+			</p>
+
+			<p>
+				The textbook reading assignment (given below) walks through a few iterations of an authentication protocol, pointing out security issues.
+			</p>
+
+			<ul>
+				<li>ap1.0 - Alice sends her username in plaintext (&quot;I am Alice&quot;)</li>
+				<li>ap2.0 - Alice sends her username in plaintext from a known IP address</li>
+				<li>ap3.0 - Alice sends her username and password in plaintext</li>
+				<li>ap3.1 - Alice sends her username in plaintext and her password encrypted with a shared (symmetric) key</li>
+				<li>ap4.0 - Alice sends her username in plaintext, Bob replies with a nonce in plaintext, Alice replies with the nonce encrypted with a shared key</li>
+			</ul>
+
+			<p><strong>Reading Assignment: </strong>Section 8.4 &quot;End-Point Authentication&quot; in the textbook</p>
+
+			<h3>Learning Check:</h3>
+
+			<ul>
+				<li>What is end-point authentication?</li>
+				<li>When is an authentication protocol typically run?&nbsp; Before other application-level&nbsp; protocols or after?&nbsp; Explain.</li>
+				<li>What is the security issue with using only a password (even an encrypted one) for authentication (as in ap3.0 and ap3.1 in the textbook)?</li>
+				<li>What is a nonce?&nbsp; How can it be used in an authentication protocol?</li>
+			</ul>
+
+		</div> <!--overview-->
+
+		<div class="objectives">
+
+			<h2>Objectives</h2>
+
+			<p>At the end of this module, students will be able to:</p>
+
+			<ul>
+				<li>Distinguish between authentication and encryption.</li>
+				<li>Explain the need for key distribution protocols.</li>
+				<li>Explain the functions of the Kerberos protocol.</li>
+				<li>Develop strong passwords.</li>
+			</ul>
+
+
+		</div> <!--objectives-->
+
+		<div class="relevance">
+
+			<h3 class="content_header">Relevance</h3>
+
+			<p>Kerberos is an authentication protocol used for authentication all over the web.&nbsp; You use Kerberos (or something very similar) every day. Creating strong passwords and dealing with password management&nbsp;is an issue that we face daily.&nbsp;</p>
+
+		
+		</div> <!--relevance-->
+
+
+		<div class="kerberos">
+		<!--Module 14.2-->
+
+			<h2>Kerberos</h2>
+
+			<h3>Key Distribution Overview</h3>
+
+			<p>In the previous topic, we saw that authentication could be achieved by using symmetric encryption.&nbsp; One of the problems with symmetric encryption is that the two communicating parties need to agree upon the shared key.&nbsp; If you have no way of physically communicating with the other party, how do you agree upon and distribute a shared key?</p>
+
+			<p>Another issue is what happens if an attacker happens to get access to the shared key.&nbsp; For this reason, many protocols that use shared keys also change the keys frequently.&nbsp; This limits the damage an attacker can do if the key is compromised.</p>
+
+			<p>(Reference used in the discussion below is Stallings, <em>Network Security Essentials</em>, Section 4.1):</p>
+
+			<p>Here are four potential ways in which key distribution could be accomplished</p>
+
+			<ol>
+				<li>a key could be selected by Alice and physically delivered to Bob</li>
+				<li>a trusted third party could select the key and physically deliver it to Alice and Bob</li>
+				<li>if Alice and Bob have previously and recently used a key, one party could transmit the new key to the other, using the old key to encrypt the new key</li>
+				<li>if Alice and Bob each have an encrypted connection to a trusted third party, the third party could deliver a key on the encrypted links to Alice and Bob</li>
+			</ol>
+
+			<p>There are problems with the first three options, so let&apos;s look more at option 4.&nbsp; In this option, there are two kinds of keys used:</p>
+
+			<ul>
+				<li><em>session key</em> - shared key between Alice and Bob, only used for a single communication session</li>
+				<li><em>permanent key</em> - key used in distributing the session key</li>
+			</ul>
+
+			<p>In order to make this work, there also needs to be the trusted third party, which is called a <em>key distribution center (KDC)</em>.&nbsp; The KDC provides a one-time session key to two communicating parties so that they can begin their authentication process.</p>
+
+			<p>The general steps are as follows:</p>
+
+			<ul>
+				<li>Alice wants to communicate with Bob, so she transmits a connection-request packet to the KDC.&nbsp; This communication is encrypted using a key shared only between Alice and the KDC.</li>
+				<li>The KDC generates a unique one-time session key.&nbsp; This is encrypted with the key it shares with Alice and is delivered to Alice.&nbsp; The KDC also shares a key with Bob and uses that to deliver the session key to Bob.</li>
+				<li>Alice and Bob communicate using the session key delivered by the KDC.</li>
+			</ul>
+
+			<h3>Learning Check:</h3>
+
+			<ul>
+				<li>What is key distribution and why is it needed?</li>
+				<li>What is the difference between a session key and a permanent key?</li>
+				<li>What is a key distribution center?&nbsp; What is its purpose?</li>
+				<li>What is Kerberos?</li>
+				<li>What are the three components of Kerberos and what is the purpose of each?</li>
+				<li>What is a ticket in Kerberos?</li>
+				<li>What is the two-step process for authentication in Kerberos?</li>
+				<li>To authenticate to a particular service (e.g., email), what does a client need?</li>
+				<li>What service issues the ticket-granting ticket (TGT)?&nbsp;</li>
+				<li>Once the user has been authenticated and has a TGT, how is the TGT used to gain access to an application server?</li>
+				<li>What is the purpose of single sign-on?</li>
+			</ul>
+
+			<h3>Kerberos</h3>
+
+			<p>Kerberos is a key distribution and authentication method used by every operating system.&nbsp; It uses a shared (thus, symmetric) secret key. We&apos;ll see later that Kerberos can also be used for single sign-on operations (such as using your Facebook credentials to login to other services).</p>
+
+			<p>Watch this video below for an overview of Kerberos.&nbsp;</p>
+
+			<p>Professor Messer, &#x201C;<a href="http://www.professormesser.com/security-plus/sy0-401/kerberos-2/" target="_blank">Kerberos</a>&#x201D;, Sep 2014</p>
+
+			<ul>
+				<li>9:55</li>
+				<li><a href="http://www.professormesser.com/security-plus/sy0-401/kerberos-2/" target="_blank">http://www.professormesser.com/security-plus/sy0-401/kerberos-2/</a></li>
+				<li>Many organizations prefer using a centralized and secure authentication protocol. In this video, you&#x2019;ll learn how Kerberos uses many different encryption points to maintain the security of the authentication process.&nbsp;</li>
+			</ul>
+
+
+			<h3>Single Sign-On</h3>
+
+			<p>Kerberos is often used for single sign-on (SSO).&nbsp; The goal of SSO is to allow a user to authenticate once and use multiple services without having to re-authenticate.&nbsp; Google and Facebook provide single sign-on.&nbsp; There are several websites that allow you to authenticate with either your Google or Facebook credentials and use their service.&nbsp; One example is a to-do list application called Remember the Milk (RTM).</p>
+
+			<p>You can register directly with RTM, or you can link your RTM account with your Facebook or Google credentials.&nbsp; If you do so and you are already logged in with Facebook or Google, you don&#x2019;t have to re-enter your username or password to login to RTM.</p>
+
+			<p><em>Optional:&nbsp;</em>If you are interested in more details about possible security issues with SSO, see the research paper &#x201C;<a href="http://research.microsoft.com/apps/pubs/default.aspx?id=160659" target="_blank">Signing Me onto Your Accounts through Facebook and Google: a Traffic-Guided Security Study of Commercially Deployed Single-Sign-On Web Services</a>&#x201D; from May 2012</p>
+			
+			<img src='sso.png' alt="" border="0" width="640" height="495" />
+
+
+		</div> <!--kerberos-->
+
+		<div class = "password_techniques">
+		<!--Module 14.3-->
+
+			<h2>Password Techniques</h2>
+
+			<h3>Creating Strong Passwords</h3>
+
+
+			<p>(source: <a href="http://xkcd.com/936/" target="_blank">http://xkcd.com/936/</a>)</p>
+
+			<p>As we&apos;ve seen earlier, one of the keys of authentication is a user password.&nbsp; So, how can we create strong passwords that we might be able to remember?&nbsp;The article in the reading assignment lists four methods to create such passwords:</p>
+
+			<ul>
+				<li>Schneier&apos;s method - take a sentence and turn it into a password</li>
+				<li>Electrum method - lengthy phrase of random words</li>
+				<li>PAO (person-action-object) method - uses mnemonic devices</li>
+				<li>phonetic muscle memory - use a password generator to generate phonetic structure and see which ones are easy to type</li>
+			</ul>
+
+			<p>The Electrum method was the subject of the popular xkcd comic shown at the top of the page.&nbsp; This has spawned a couple of sites to help you generate such passwords:</p>
+
+			<ul>
+				<li>xkcd Password Generator - <a href="http://preshing.com/20110811/xkcd-password-generator/" target="_blank">http://preshing.com/20110811/xkcd-password-generator/</a></li>
+				<li>xkpasswd - <a href="https://xkpasswd.net/s/" target="_blank">https://xkpasswd.net/s/</a></li>
+			</ul>
+
+			<p>xkcd also had a comic about password reuse - <a href="https://xkcd.com/792/" target="_blank">https://xkcd.com/792/</a></p>
+
+			<p>Another tip for managing passwords is to use a password management tool, such as <a href="https://agilebits.com/onepassword" target="_blank">1Password</a> (my favorite) or <a href="https://lastpass.com/" target="_blank">LastPass</a>.</p>
+
+			<p>Watch this TED talk for more information on password use (or mis-use):</p>
+
+			<ul>
+				<li>Lorrie Faith Cranor, &quot;<a href="http://www.ted.com/talks/lorrie_faith_cranor_what_s_wrong_with_your_pa_w0rd" target="_blank">What&apos;s wrong with your pa$$w0rd?</a>&quot;,&nbsp;March 2014</li>
+				<li>17:37</li>
+				<li>&quot;Lorrie Faith Cranor studied thousands of real passwords to figure out the surprising, very common mistakes that users &#x2014; and secured sites &#x2014; make to compromise security. And how, you may ask, did she study thousands of real passwords without compromising the security of any users? That&apos;s a story in itself. It&apos;s secret data worth knowing, especially if your password is 123456 ...&quot;</li>
+				<li><a href="http://www.ted.com/talks/lorrie_faith_cranor_what_s_wrong_with_your_pa_w0rd" target="_blank">http://www.ted.com/talks/lorrie_faith_cranor_what_s_wrong_with_your_pa_w0rd</a></li>
+			</ul>
+
+			<p>[Optional]: &quot;Passwords and the Evolution of Imperfect Authentication&quot;,&nbsp;<em>Communications of the ACM</em>, July 2015,&nbsp;<a href="http://cacm.acm.org/magazines/2015/7/188731-passwords-and-the-evolution-of-imperfect-authentication/fulltext" target="_blank">http://cacm.acm.org/magazines/2015/7/188731-passwords-and-the-evolution-of-imperfect-authentication/fulltext</a></p>
+
+			<ul>
+				<li>&quot;We identify as outdated two models that still underlie much of the current password literature. First is the model of a random user who draws passwords uniformly and independently from some set of possible passwords....&nbsp;The second is that of an offline attack against the password file. ... Together, these models have inspired an awkward jumble of contradictory advice that is impossible for humans to follow.&quot;</li>
+			</ul>
+
+			<p><strong>Reading Assignment: </strong>&quot;How to Create a Secure Password You Can Remember Later: 4 Key Methods&quot;, <a href="https://open.buffer.com/creating-a-secure-password/" target="_blank">https://open.buffer.com/creating-a-secure-password/</a>, July 2014</p>
+
+			<h3>Learning Check:</h3>
+
+			<ul>
+				<li>What are four methods of generating strong passwords?</li>
+				<li>Is it better to reuse your password or write it down?&nbsp; (Hint - see the TED talk)</li>
+				<li>What is the goal of two-factor authentication?</li>
+			</ul>
+
+
+			<h3>Two-Factor Authentication</h3>
+
+			<p>Two-factor authentication is pretty much what it sounds like.&nbsp; You provide one type of authentication (your password) and if you&apos;re connecting to the service from an IP address that is not recognized (a new computer or device), the service will try to contact you using other method.&nbsp; Typically this is done by sending a text message to a mobile device with a code for you to enter on the site. &nbsp;Even though it&apos;s not 100% secure -- someone could steal both your password and your phone, it is much more secure than if someone could access your data with only your password.</p>
+
+			<p>Here&apos;s a list of sites and services that provide two-factor authentication - <a href="https://twofactorauth.org/" target="_blank">https://twofactorauth.org/</a></p>
+
+			<p>[Optional]: Here&apos;s an article about Apple&apos;s two-factor authentication&nbsp;- &quot;iCloud users take note: Apple two-step protection won&#x2019;t protect your data&quot;,&nbsp;<em>Ars Technica</em>, May 2013,&nbsp;<a href="http://arstechnica.com/security/2013/05/icloud-users-take-note-apple-two-step-protection-wont-protect-your-data/" target="_blank">http://arstechnica.com/security/2013/05/icloud-users-take-note-apple-two-step-protection-wont-protect-your-data/</a></p>
+
+			<p><strong>Reading Assignment:&nbsp;</strong>Google&apos;s webpage on 2-Step Verification, <a href="https://www.google.com/landing/2step/" target="_blank">https://www.google.com/landing/2step/&nbsp;</a></p>
+
+
+
+		</div> <!--password_techniques-->
+
+
+
+		<style>
+
+		a { color:blue; }
+	
+			a:hover { color:red; }
+
+		h1 { font-size:1.1em; text-align:center; }
+
+		body { font-family:verdana; font-size:medium; text-align:left; }
+
+	    	#navigator { text-align:left; margin:auto; }
+
+			div.overview { color:black; }
+
+			#video_transcript { color:grey; }
+
+			div.intro p {	color:blue; }
+
+			div.objectives { color:green; }
+
+			div.relevance { color:red; }
+		
+		</style>
+	
+	</body>
+
+
+</html>
