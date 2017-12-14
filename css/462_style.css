@@ -1,0 +1,19 @@
+/* Draft stylesheet for CS462_notes */
+
+p { color: blue; text-align: right; }
+h1 { color: red; }
+div.overview { color:black; }
+#video_transcript { color:grey; }
+div.intro { color:blue;}
+a { color:blue; }
+a:hover { color:red; }
+h1 { font-size:1.1em; text-align:center; }
+td { vertical-align:top; font-size:medium; padding:20px; }
+ul { margin:0; padding:0; }
+li { margin-top:20px; }
+body { font-family:verdana; font-size:medium; text-align:left; }
+#navigator { text-align:left; width:1500px; margin:auto; }
+#main { text-align:left; width:1500px; margin:auto; }
+#navigator { text-align:left; margin:auto; }
+div.objectives { color:green; }
+div.relevance { color:red; }
