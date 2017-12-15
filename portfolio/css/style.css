@@ -1,0 +1,42 @@
+﻿
+body {
+	font-family: 'Lato', sans-serif;
+	color:#747704;
+	font-weight: 300;
+}
+
+.text-muted {
+	color: #BCBBBB;
+}
+
+.text-thin {
+	font-weight: 100;
+}
+
+.title-super {
+	font-size: 60px;
+}
+
+.circular {
+    margin-top: 20px;
+	width: 200px;
+	height: 200px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(http://i.imgur.com/flYSYYb.jpg) no-repeat;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+
+.img-para {
+    margin:10px;
+    padding:10px;
+    font-size: 20px;
+}
+
+.footer-left {
+    color: #c0c0c0;
+    margin-bottom: 30px;
+}

@@ -5,7 +5,14 @@
 
 	<meta charset="utf-8">
 	<title>Cryptography</title>
-	<link rel="stylesheet" href="https://antonrasmussen.github.io/css/462_style.css">
+	<!-- Edit on desktop -->
+	<link rel="stylesheet" href="/Users/antonrasmussen/Desktop/github_website/css/462_style.css">
+
+	<!-- Web version
+
+	link rel="stylesheet" href="https://antonrasmussen.github.io/css/462_style.css"
+
+	-->
 </head>
 
 <body>
@@ -15,7 +22,7 @@
 	</div><!--navigator-->
 
 
-			<div class="overview">
+			<div id="overview">
 				<!--Module 10.0-->
 
 				<h2>Overview</h2>
@@ -60,7 +67,7 @@
 
 	</div> <!--overview-->
 
-	<div class="objectives">
+	<div id="objectives">
 
 		<h2>Objectives</h2>
 
@@ -78,7 +85,7 @@
 
 	</div> <!--objectives-->
 
-	<div class="relevance">
+	<div id="relevance">
 
 		<h2>Relevance</h2>
 
@@ -89,7 +96,7 @@
 	</div> <!--relevance-->
 
 
-	<div class="intro">
+	<div id="intro">
 	<!--Module 10.1-->
 
 		<h2>Introduction</h2>
@@ -119,11 +126,11 @@
 		</p>
 
 		<p>
-			<em id="video_quote">“Our modern applications make extensive use of cryptography. In this video, you’ll learn the basics of cryptography and some of the history of ciphers and secrecy.”</em>
+			<em class="video_quote">“Our modern applications make extensive use of cryptography. In this video, you’ll learn the basics of cryptography and some of the history of ciphers and secrecy.”</em>
 		</p>
 	</div> <!--intro-->
 
-	<div class="symmetric_key_encryption">
+	<div id="symmetric_key_encryption">
 	<!--Module 10.2-->
 		<p>
 			Here we're looking at symmetric encryption ciphers, meaning that the same key is used for both encryption and decryption.
@@ -137,7 +144,7 @@
 		</p>
 
 		<p>
-			<em id="video_quote">“Some data transfer methods will encrypt data one byte at a time or in groups of larger data blocks. In this video, you’ll learn how block ciphers combine data encryption with speed and efficiency.”</em>
+			<em class="video_quote">“Some data transfer methods will encrypt data one byte at a time or in groups of larger data blocks. In this video, you’ll learn how block ciphers combine data encryption with speed and efficiency.”</em>
 		</p>
 
 		<p>
@@ -157,11 +164,11 @@
 			<a href="http://www.professormesser.com/security-plus/sy0-401/symmetric-encryption-ciphers-2/">Professor Messer: Symmetric Encryption Ciphers</a> <!--embed actual video-->
 		</p>
 
-		<em id="video_quote">“The speed of symmetric encryption makes it a good choice for our high-speed networks. In this video, you’ll learn about RC4, DES, 3DES, AES, Blowfish, and Twofish.”</em>
+		<em class="video_quote">“The speed of symmetric encryption makes it a good choice for our high-speed networks. In this video, you’ll learn about RC4, DES, 3DES, AES, Blowfish, and Twofish.”</em>
 
 	</div> <!--symmetric key encryption-->
 
-	<div class="public_key_encryption">
+	<div id="public_key_encryption">
 	<!--Module 10.3-->
 
 		<p>
@@ -173,11 +180,11 @@
 		</p>
 
 		<p>
-			<em id="video_quote">“Our encryption methods will generally use either symmetric encryption or asymmetric encryption, and sometimes both! In this video, you’ll learn the advantages and disadvantages when using symmetric or asymmetric encryption types.”</em>
+			<em class="video_quote">“Our encryption methods will generally use either symmetric encryption or asymmetric encryption, and sometimes both! In this video, you’ll learn the advantages and disadvantages when using symmetric or asymmetric encryption types.”</em>
 		</p>
 
 		<p>
-			<em id="video_quote">“Asymmetric encryption uses two different keys to provide a secure channel. In this video, you’ll learn how public keys and private keys can be used to encrypt data, create digital signatures, and create a secure symmetric key.”</em>
+			<em class="video_quote">“Asymmetric encryption uses two different keys to provide a secure channel. In this video, you’ll learn how public keys and private keys can be used to encrypt data, create digital signatures, and create a secure symmetric key.”</em>
 		</p>
 
 		<div id="public_key_example">
@@ -219,7 +226,7 @@
 		</div>
 	</div> <!--public key encryption-->
 
-	<div class="rsa">
+	<div id="rsa">
 	<!--Module 10.4-->
 		<p>As seen previously, the idea behind public key cryptography is that you have a public key and a private key. These keys have a special relationship.  Anything encrypted with the public key can only be decrypted by the corresponding private key.  Anything encrypted with the private key can only be decrypted by the corresponding public key.</p>
 
@@ -261,7 +268,7 @@
 
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/wXB-V_Keiu8" frameborder="0" allowfullscreen></iframe>
 
-		<p><em id="video_quote">"RSA Public Key Encryption Algorithm (cryptography). How & why it works. Introduces Euler's Theorem, Euler's Phi function, prime factorization, modular exponentiation & time complexity."</em></p>
+		<p><em class="video_quote">"RSA Public Key Encryption Algorithm (cryptography). How & why it works. Introduces Euler's Theorem, Euler's Phi function, prime factorization, modular exponentiation & time complexity."</em></p>
 
 		<p>Optional: See http://www.cem.me/pki/ for several posters that illustrate some of the details of using RSA and other cryptographic functions in SSL/TLS certificates.</p>
 
@@ -303,7 +310,7 @@
 
 	</div> <!--rsa-->
 
-	<div class="message_integrity_and_digital_signatures">
+	<div id="message_integrity_and_digital_signatures">
 	<!--Module 10.5-->
 		<h3>Message Integrity Overview</h3>
 
@@ -356,13 +363,13 @@
 
 	<p>Here are 3 short videos providing an overview of digital certificates, Internet shipping, and the Public Key Infrastructure.</p>
 
-	<p><em id="video_quote">“We rely on digital certificates for much of the encryption that we use over the Internet. In this video, you’ll learn about digital certificates and what information is contained in a digital certificate.”</em></p>
+	<p><em class="video_quote">“We rely on digital certificates for much of the encryption that we use over the Internet. In this video, you’ll learn about digital certificates and what information is contained in a digital certificate.”</em></p>
 
 	<p>Watch this short video for an example of using public key cryptography for Internet shopping.</p>
 
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/hd2kEJoQmOU" frameborder="0" allowfullscreen></iframe>
 
-	<p><em id="video_quote">“If you have a large number of devices using a public key infrastructure, you’ll need a way to manage all of the keys in the infrastructure. In this video, you’ll learn about public key infrastructures and the key management lifecycle.”</em></p>
+	<p><em class="video_quote">“If you have a large number of devices using a public key infrastructure, you’ll need a way to manage all of the keys in the infrastructure. In this video, you’ll learn about public key infrastructures and the key management lifecycle.”</em></p>
 
 	<h3>Internet Shopping with Certificates</h3>
 
@@ -384,7 +391,7 @@
 
 	</div> <!--message integrity and digital signatures-->
 
-	<div class="securing_wireless_lans">
+	<div id="securing_wireless_lans">
 	<!--Module 10.6-->
 
 	<p>This topic is broken into two main parts.  First we’ll look at stream ciphers in general, and then we’ll look at their applicability to wireless networks in the form of WEP, WPA, and WPA2.</p>
@@ -397,7 +404,7 @@
 
 	<p>The Rivest Cipher (RC4) is a byte-oriented stream cipher. RC4 uses a variable key size (40-256 bits) and was used in well-known protocols such as SSL/TLS, WEP, and WPA.  Unfortunately, RC4 has known problems and isn't commonly used anymore, in favor of the AES block cipher.</p>
 
- 	<p><em id="video_quote">“The speed of symmetric encryption makes it a good choice for our high-speed networks. In this video, you’ll learn about RC4, DES, 3DES, AES, Blowfish, and Twofish.”</em></p>
+ 	<p><em class="video_quote">“The speed of symmetric encryption makes it a good choice for our high-speed networks. In this video, you’ll learn about RC4, DES, 3DES, AES, Blowfish, and Twofish.”</em></p>
 
  	<p>For a nice overview of RC4 and its vulnerabilities, read this blog post by Matthew Green: "Attack of the week: RC4 is kind of broken in TLS", March 2013, <a href="http://blog.cryptographyengineering.com/2013/03/attack-of-week-rc4-is-kind-of-broken-in.html"> http://blog.cryptographyengineering.com/2013/03/attack-of-week-rc4-is-kind-of-broken-in.html</a></p>
 
@@ -409,7 +416,7 @@
 
 	<p>Watch this video for an overview of the differences between WEP, WPA, and WPA2 techniques for WLAN security.</p>
 
-	<p><em id="video_quote">“802.11 networks rely on encryption to ensure the security of all wireless traffic. In this video, you’ll learn about WEP and WPA encryption and the dangers of using the wrong encryption on your wireless network"</em></p>
+	<p><em class="video_quote">“802.11 networks rely on encryption to ensure the security of all wireless traffic. In this video, you’ll learn about WEP and WPA encryption and the dangers of using the wrong encryption on your wireless network"</em></p>
 
 	<p>The table below provides a comparison between WEP, WPA, and WPA2.</p>
 	<table>
@@ -447,64 +454,64 @@
 
 
 
-	<div class="videos">
+	<div id="videos">
 
 		<h2>Videos</h2>
 
-		<ul id="intro">
+		<ul class="intro">
 			<li><a href="https://www.professormesser.com/security-plus/sy0-401/cryptography-overview-2/">Professor Messer: Cryptography Overview</a></li>
 		</ul><!--intro-->
 
-		<ul id="symmetric_key_encryption">
+		<ul class="symmetric_key_encryption">
 			<li><a href="http://www.professormesser.com/security-plus/sy0-401/block-vs-stream-ciphers/">Professor Messer: Block vs. Stream Ciphers</a></li>
 			<li><a href="http://www.professormesser.com/security-plus/sy0-401/symmetric-encryption-ciphers-2/">Professor Messer: Symmetric Encryption Ciphers</a></li>
 		</ul><!--symmetric key encryption-->
 
-		<ul id="public_key_encryption">
+		<ul class="public_key_encryption">
 			<li><a href="http://www.professormesser.com/security-plus/sy0-401/symmetric-vs-asymmetric-encryption-2/">Professor Messer: Symmetric Vs. Asymmetric Encryption</a></li>
 			<li><a href="http://www.professormesser.com/security-plus/sy0-401/public-keys-and-private-keys/">Professor Messer: Public Keys and Private Keys</a></li>
 		</ul><!--public key encryption-->
 
-		<ul id="message_integrity_and_digital_signatures">
+		<ul class="message_integrity_and_digital_signatures">
 			<li><a href="http://www.professormesser.com/security-plus/sy0-401/digital-certificates-2/">Professor Messer: Digital Certificates</a></li>
 			<li><a href="http://www.professormesser.com/security-plus/sy0-401/public-key-infrastructure-2/">Professor Messer: Public Key Infrastructure</a></li>
 
 		</ul><!--message integrity and digital signatures-->
 
-		<ul id="securing_wireless_lans">
+		<ul class="securing_wireless_lans">
     		<li><a href="http://www.professormesser.com/security-plus/sy0-401/wep-vs-wpa-2/">Professor Messer: WEP vs WPA</a></li>
 		</ul><!--securing wireless lans-->
 
 
 	</div> <!--videos-->
 
-	<div class="reading_assignments">
+	<div id="reading_assignments">
 
     	<h2>Reading Assignments</h2>
 
-    	<ul id="intro">
+    	<ul class="intro">
     		<li>Introduction to Chapter 8 – “Security in Computer Networks”</li>
     		<li>Section 8.1 – "What is Network Security"</li>
     		<li>Introduction to Section 8.2 – "Principles of Cryptography”</li>
     	</ul><!--intro-->
 
-    	<ul id="symmetric_key_encryption">
+    	<ul class="symmetric_key_encryption">
     		<li>Section 8.2.1 – "Symmetric Key Cryptography"</li>
     	</ul><!--symmetric key encryption-->
 
-    	<ul id="public_key_encryption">
+    	<ul class="public_key_encryption">
     		<li>Introduction to Section 8.2.2 – "Public Key Encryption"</li>
     	</ul><!--public key encryption-->
 
-    	<ul id="rsa">
+    	<ul class="rsa">
     		<li>Section 8.2.2 - "Public Key Encryption" (subsections "RSA", "Session Keys", and "Why Does RSA Work?")</li>
     	</ul><!--rsa-->
 
-    	<ul id="message_integrity_and_digital_signatures">
+    	<ul class="message_integrity_and_digital_signatures">
     		<li>Section 8.3 – "Message Integrity and Digital Signatures"</li>
     	</ul><!--message integrity and digital signatures-->
 
-    	<ul id="securing_wireless_lans">
+    	<ul class="securing_wireless_lans">
     		<li>Section 8.8 – "Securing Wireless LANs"</li>
     	</ul><!--securing wireless lans-->
 
@@ -513,11 +520,11 @@
 
     </div> <!--reading assignments-->
 
-    <div class="learning_checks">
+    <div id="learning_checks">
 
     	<h2>Learning Checks</h2>
 
-    	<ul id="intro">
+    	<ul class="intro">
     		<li>What is confidentiality?</li>
     		<li>What is message integrity?</li>
     		<li>What is authentication?</li>
@@ -528,7 +535,7 @@
     		<li>What is a key?</li>
     	</ul><!--id intro-->
 
-    	<ul id="symmetric_key_encryption">
+    	<ul class="symmetric_key_encryption">
     		<li>What information would an intruder need to perpetrate a ciphertext-only attack?  a known-plaintext attack?  a chosen-plaintext attack?</li>
     		<li>What is the difference between a block cipher and a stream cipher?</li>
     		<li>What are the two most-commonly used block ciphers?</li>
@@ -543,7 +550,7 @@
     		<li>What is the initialization vector (IV)?</li>
     	</ul><!--symmetric key encryption-->
 
-		<ul id="public_key_encryption">
+		<ul class="public_key_encryption">
    			<li>What is the main difference between symmetric and asymmetric encryption?</li>
    			<li>If asymmetric encryption is more secure than symmetric encryption, why do people still use symmetric encryption?</li>
    			<li>How many keys are used in public-key cryptography, or asymmetric encryption?</li>
@@ -552,7 +559,7 @@
    			<li>What is one way that public-key cryptography can be used in conjunction with symmetric key cryptography?</li>
     	</ul><!--public key encryption-->
 
-    	<ul id="rsa">
+    	<ul class="rsa">
     		<li>What is the purpose of the RSA algorithm?</li>
 			<li>In the RSA algorithm, what is the private key and what is the public key?</li>
 			<li>In RSA, is it feasible to determine the private key if you know the public key?  Why or why not?</li>
@@ -563,7 +570,7 @@
 			<li>How secure is RSA?</li>
     	</ul><!--rsa-->
 
-    	<ul id="message_integrity_and_digital_signatures">
+    	<ul class="message_integrity_and_digital_signatures">
 
     		<li>What is a cryptographic hash function?</li>
     		<li>What are two widely-used hash algorithms?</li>
@@ -579,7 +586,7 @@
     		<li>What is key revocation?</li>
     	</ul><!--message integrity and digital signatures-->
 
-    	<ul id="securing_wireless_lans">
+    	<ul class="securing_wireless_lans">
 
 			<li>What is a stream cipher?</li>
 			<li>When is a block cipher more suitable than a stream cipher?</li>

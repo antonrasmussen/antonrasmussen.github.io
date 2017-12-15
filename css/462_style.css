@@ -1,19 +1,64 @@
 /* Draft stylesheet for CS462_notes */
 
-p { color: blue; text-align: right; }
+
+/* === GLOBAL SETTINGS === */
+
+/* === Primary Layout Structure === */
+
+body { font-family:verdana; font-size:medium; text-align:left; }
+
+div#navigator
+div#overview
+div#video_transcript
+div#objectives
+div#relevance
+div#videos
+div#reading_assignments
+div#learning_checks
+div#public_key_example
+
+
+div.intro
+div.symmetric_key_encryption
+div.public_key_encryption
+div.rsa
+div.message_integrity_and_digital_signatures
+div.securing_wireless_lans
+div.video_quote
+
+
+
+
+/* === Secondary Layout Structure === */
+
+/* === Tertiarity Layout Structure === */
+
+/* === Text-Related Treatments=== */
+
+/* === Images, Links, and Other Features === */
+
+/* === General Styles === */
+
+/* === General Classes === */
+
+/* === Miscellaneous Stuff and Template Code === */
+
+
+#navigator { text-align:left; width:1500px; margin:auto; }
+/*p { color: blue; text-align: left;; }*/
 h1 { color: red; }
 div.overview { color:black; }
 #video_transcript { color:grey; }
-div.intro { color:blue;}
+
 a { color:blue; }
 a:hover { color:red; }
 h1 { font-size:1.1em; text-align:center; }
 td { vertical-align:top; font-size:medium; padding:20px; }
 ul { margin:0; padding:0; }
 li { margin-top:20px; }
-body { font-family:verdana; font-size:medium; text-align:left; }
-#navigator { text-align:left; width:1500px; margin:auto; }
+
+
 #main { text-align:left; width:1500px; margin:auto; }
-#navigator { text-align:left; margin:auto; }
+
 div.objectives { color:green; }
 div.relevance { color:red; }
