@@ -173,7 +173,9 @@ def create_movie_tiles_content(movies):
 
 
 def open_movies_page(movies):
-    output_path = os.path.join(os.path.dirname(__file__), 'fresh_tomatoes.html')
+    # Generators live in scripts/movies/; published HTML stays at movies/fresh_tomatoes.html
+    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+    output_path = os.path.join(repo_root, 'movies', 'fresh_tomatoes.html')
     with open(output_path, 'w', encoding='utf-8') as output_file:
         rendered_content = main_page_content.format(
             movie_tiles=create_movie_tiles_content(movies))
