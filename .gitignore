@@ -1,1 +1,7 @@
 /git_ignore/*
+__pycache__/
+*.pyc
+*-ant0nj3ff-*.zip
+instagram-*.zip
+threads-*.zip
+facebook-*.zip

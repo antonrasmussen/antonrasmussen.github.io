@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Feel free to use my source! -->
+<html>
+<head>
+<title>{{ title }}</title>
+<meta charset="utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<style>
+
+    a { color:blue; }
+        a:hover { color:red; }
+
+    td { vertical-align:top; font-size:small; padding:5px; }
+
+    ul { margin:0; padding:0 0 0 20px; }
+
+    li { margin-top:10px; }
+
+    img { max-width: 500px; height: auto; padding:5px; }
+
+    body { font-family:verdana; font-size:small; text-align:center; }
+
+        #navigator { text-align:left; width:1000px; margin:auto; }
+
+        #headline { text-align:center; width:1000px; margin:auto; }
+
+        #main { text-align:left; width:1000px; margin:auto; }
+
+        #bottomBlock { text-align:left; width:1000px; margin:auto; }
+
+        .dateline { color: #333; font-size: small; margin-top: 8px; }
+
+        .tags { font-size: x-small; color: #555; margin-top: 12px; }
+
+</style>
+</head>
+
+<body>
+    <div id="navigator">
+
+        <p><a href="/index.html">antonrasmussen.github.io:</a> >
+        <a href="/articles.html">Articles</a> > {{ title }}</p>
+
+    </div><!--navigator-->
+
+	<div id="headline">
+
+		<h1>{{ title }}</h1>
+        <p class="dateline">{{ dateline }}</p>
+
+	</div><!--headline-->
+
+
+	<div id="main">
+
+{{ body }}
+
+{{ tags_html }}
+
+    </div><!--main-->
+
+	<div id="bottomBlock">
+        <div style="margin:20px">
+
+            <hr/>
+               <p style="text-align: center;"><b>email me:</b> anton.j.rasmussen [at] gmail.com</p>
+            <p style="text-align: center;"><i>Articles</i> [<a href="/articles.html">Index</a>]</p>
+
+        </div>
+    </div><!--bottomBlock-->
+
+</body>
+</html>

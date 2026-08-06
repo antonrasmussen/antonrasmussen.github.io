@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Anton Rasmussen</title>
+    <link>https://antonrasmussen.com</link>
+    <description>Writing and notes from antonrasmussen.com</description>
+    <item>
+      <title>MSCS Courses-Only Exit Report</title>
+      <link>https://antonrasmussen.com/articles/2026-05-01-mscs-courses-only-exit-report.html</link>
+      <guid isPermaLink="true">https://antonrasmussen.com/articles/2026-05-01-mscs-courses-only-exit-report.html</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<h2>Master of Science in Computer Science — Courses-Only Exit Report</h2>
+<p><strong>Anton Rasmussen</strong><br />
+Old Dominion University - Department of Computer Science<br />
+Spring 2026</p>
+<hr />
+<h2>1. Introduction</h2>
+<p>I am a Senior Data Engineer working in healthcare data systems. Before starting the MSCS at Old Dominion University, I had strong practical experience in ETL, distributed systems, and cloud data platforms, but I wanted a deeper theoretical foundation and stronger AI/ML depth. My goal was to improve both technical judgment and communication with research-oriented teams.</p>
+<p>Across thirteen graduate courses from Spring 2024 to Spring 2026, I developed stronger foundations in algorithms and architecture, broadened my data and AI toolkit, and gained a clearer framework for secure and responsible deployment. This report summarizes what I learned in each course, how I applied it to professional work, recommendations for program improvement, and my overall impression of the program.</p>
+<hr />
+<h2>2. Foundations in Computer Science</h2>
+<h3>2.1 Algorithms and Data Structures (CS 600)</h3>
+<p>CS 600 gave me a rigorous framework for reasoning about efficiency and correctness. The most valuable outcomes were disciplined complexity analysis, clearer understanding of when to use dynamic programming versus greedy strategies, and stronger fluency with graph-based reasoning.</p>
+<p>I apply this directly when designing production pipelines. Instead of treating performance as trial-and-error tuning, I now start with complexity assumptions and expected bottlenecks, then validate them with profiling. This course changed my approach from tool-first debugging to principle-first design.</p>
+<h3>2.2 Computer Architecture (CS 665)</h3>
+<p>CS 665 helped me connect software behavior to hardware constraints through CPI, Amdahl&rsquo;s Law, caching, and pipeline behavior. The course made performance tradeoffs more concrete, especially the limits of local optimizations when the dominant cost is elsewhere in the system.</p>
+<p>In practice, this changed how I explain system behavior to engineering teams. I now frame performance issues as compute-bound versus memory-bound phases and can justify architectural choices with clearer evidence. The main takeaway is that performance conversations are far more productive when grounded in architecture, not intuition.</p>
+<hr />
+<h2>3. Data Science and Large-Scale Data Systems</h2>
+<h3>3.1 Intro to Data Science &amp; Analytics (CS 620)</h3>
+<p>CS 620 established my baseline data science workflow: data cleaning, exploratory analysis, model evaluation, and interpretation. The course was especially useful for reinforcing metric literacy and linking model results to decision quality rather than headline accuracy alone.</p>
+<p>I applied this mindset in my work by standardizing how I report model quality and by being more explicit about tradeoffs between precision, recall, and operational impact. The largest practical gain was consistency in how I move from raw data to decision-ready outputs.</p>
+<h3>3.2 Data Analytics and Big Data (CS 624)</h3>
+<p>CS 624 expanded my capabilities from analysis to scalable systems, especially Spark-based processing, streaming concepts, and lakehouse-oriented design. The course also connected modern ML workflow concerns to data engineering practice.</p>
+<p>Professionally, this course strengthened my ability to design data platforms that support both analytics and ML workloads without separate, fragile pipelines. I now evaluate architecture choices more explicitly around maintainability, observability, and cost at scale.</p>
+<h3>3.3 High Performance Computing for Big Data (CS 724)</h3>
+<p>CS 724 provided hands-on depth in distributed and parallel computing, including Hadoop, Spark, and GPU-oriented thinking. The most important outcome for me was learning how to combine system-level tools with practical experimentation under realistic constraints.</p>
+<p>My final project built a Spark-based de-identification pipeline for healthcare XML data with masking and encryption workflows. That work maps closely to my professional environment, where privacy protection and scalable processing are simultaneous requirements. This course improved my confidence in implementing privacy-aware pipelines, not just discussing them conceptually.</p>
+<h3>3.4 Data Mining and Security (CS 773)</h3>
+<p>CS 773 strengthened my understanding of applied data mining workflows, especially model selection, evaluation, and preprocessing decisions in security-related contexts. The course was valuable because it emphasized how small preprocessing choices can strongly affect downstream model behavior.</p>
+<p>I use that lesson in production reviews by spending more time on data quality and feature assumptions before debating model algorithms. The course reinforced a practical truth: many model failures are data pipeline failures in disguise.</p>
+<h3>3.5 Data Visualization (CS 625)</h3>
+<p>CS 625 improved how I communicate technical findings to non-technical stakeholders. The strongest contribution was a structured approach to matching visual form to analytic question, then validating whether the chart supports an honest interpretation.</p>
+<p>I applied this in healthcare reporting workflows where clarity matters as much as technical correctness. I now design visual outputs with explicit audience and decision context in mind, which has improved both stakeholder trust and adoption of analytics results.</p>
+<hr />
+<h2>4. Artificial Intelligence and Machine Learning</h2>
+<h3>4.1 Generative AI (CS 795)</h3>
+<p>CS 795 combined generative model fundamentals with practical deployment workflows. The key gain was not just understanding transformer-based systems, but learning how model lifecycle decisions affect reliability, privacy, and operational feasibility.</p>
+<p>In my work, this changed how I evaluate cloud-first versus edge-capable deployment paths. I now treat deployment design as part of model quality, especially in regulated settings where data governance and latency constraints can outweigh raw benchmark gains.</p>
+<h3>4.2 AI Security &amp; Privacy (CS 695)</h3>
+<p>CS 695 made adversarial robustness concrete through hands-on attack and defense work. The most important lesson was that high clean accuracy does not imply security, and that subtle data or model manipulations can pass unnoticed without deliberate testing.</p>
+<p>I now approach ML deployment reviews with a stronger threat-model mindset. This includes asking earlier questions about poisoning risk, integrity checks, and defense planning rather than treating security as a post-deployment concern.</p>
+<h3>4.3 Trustworthy Health Analytics (CS 581)</h3>
+<p>CS 581 connected healthcare analytics to fairness, explainability, and governance requirements. The course clarified how bias and representational gaps can enter a pipeline long before final model evaluation.</p>
+<p>I apply this by including fairness and explainability checks in model review conversations, especially for healthcare-related use cases. The main shift was moving from &ldquo;does it predict well?&rdquo; to &ldquo;is it acceptable, auditable, and equitable in context?&rdquo;</p>
+<h3>4.4 AI for Health Sciences (CS 781)</h3>
+<p>CS 781 linked biomedical AI tasks to deployment-quality evaluation. The most useful part for me has been the emphasis on calibration and behavioral stability, not just aggregate accuracy, in settings where incorrect confidence can carry high consequences.</p>
+<p>This directly informs how I assess model readiness in healthcare contexts. A practical limitation I observed is that the course covered many advanced topics quickly; additional depth on clinical implementation workflows would make the transition from prototype to deployment even stronger.</p>
+<hr />
+<h2>5. Web Security (CS 533)</h2>
+<p>CS 533 covered core web security risks and defensive patterns relevant to any system with browser-facing or API-facing components. The hands-on labs made common issues such as session handling mistakes, cross-site attacks, and policy misconfiguration more tangible than lecture-only coverage.</p>
+<p>I apply these lessons when reviewing internal tools and data platform interfaces, especially where authentication and session behavior affect protected data access. Together with AI security and fairness coursework, CS 533 helped me build a more complete view of trustworthy systems from infrastructure through model behavior.</p>
+<hr />
+<h2>6. Colloquium (CS 690)</h2>
+<p>CS 690 exposed me to current research and industry perspectives beyond the scope of individual course assignments. The main benefit was seeing how researchers and practitioners frame problems, communicate evidence, and justify tradeoffs.</p>
+<p>That broader exposure helped me contextualize my coursework and sharpened how I discuss technical decisions with mixed audiences. It also clarified which areas of AI and data engineering I want to pursue after graduation.</p>
+<hr />
+<h2>7. Application to Professional Work</h2>
+<p>The most important change from this degree is that I now approach work with stronger integration across algorithms, systems, and responsible AI principles. In practice, I make architecture decisions with clearer complexity and hardware assumptions, then validate them through profiling and operational metrics rather than ad hoc tuning.</p>
+<p>For machine learning work, I now evaluate readiness across a wider set of criteria: model quality, data quality, security exposure, fairness risk, and confidence reliability. This has made my collaboration with data scientists and stakeholders more effective because I can discuss tradeoffs in a shared technical language rather than from a single engineering perspective.</p>
+<p>For healthcare-focused projects, the program gave me a practical framework for balancing scale, compliance, and trust. I leave the program better prepared to design systems that are not only performant, but also secure, explainable, and realistic to maintain in production settings.</p>
+<hr />
+<h2>8. Suggestions for Program Improvement</h2>
+<p>Based on my experience, I suggest the following improvements.</p>
+<p><strong>1) Add a dedicated production ML/MLOps course.</strong><br />
+Students currently assemble these skills across multiple classes. A focused course on model lifecycle management, deployment standards, monitoring, and drift response would better prepare graduates for industry practice.</p>
+<p><strong>2) Expand cloud-native and platform engineering coverage.</strong><br />
+Structured coverage of containerization, infrastructure automation, CI/CD, and reproducibility would close a recurring gap between academic prototypes and production systems.</p>
+<p><strong>3) Increase industry-facing practicum options.</strong><br />
+More structured collaboration with external partners would improve student exposure to real constraints, including compliance, stakeholder alignment, and long-lived system ownership.</p>
+<p><strong>4) Strengthen interdisciplinary pathways for health applications.</strong><br />
+Joint activities with health and biomedical programs would improve problem framing and domain realism for students interested in clinical and public-health analytics.</p>
+<hr />
+<h2>9. Overall Reflection</h2>
+<p>The ODU MSCS program was a meaningful step in my professional development. I entered with strong implementation experience but uneven theoretical depth; I leave with a more balanced foundation across algorithms, systems, data science, and AI. The program improved not only what I can build, but how I reason about tradeoffs and communicate decisions.</p>
+<p>A consistent theme across my coursework was applying computing methods to healthcare contexts, and that focus clarified my long-term direction. At the same time, balancing full-time work with graduate study was demanding, and some terms required prioritizing breadth over depth. Even with that constraint, the program delivered clear value and has prepared me to take on more advanced technical leadership in secure and trustworthy AI-enabled data systems.</p>]]></description>
+    </item>
+    <item>
+      <title>A New Website (Initial Commit)</title>
+      <link>https://antonrasmussen.com/articles/2017-08-15-a-new-website.html</link>
+      <guid isPermaLink="true">https://antonrasmussen.com/articles/2017-08-15-a-new-website.html</guid>
+      <pubDate>Tue, 15 Aug 2017 12:00:00 GMT</pubDate>
+      <description><![CDATA[<h2>Welcome</h2>
+<p>Welcome to my new website. If history is any guide, I&rsquo;ll put a bunch of work into this bad boy and then just delete everything and shut it down within a few years.</p>
+<p>Fortunately the stakes are higher this time&hellip; [please don&rsquo;t bother to comb through Google looking for my web-based tragedies; oh, they&rsquo;re there.]</p>
+<p>See, the thing is, having a website these days&ndash;especially for someone who is in the CS world&ndash;is crucial. In the 22 years I&rsquo;ve been building webpages I have gone through countless experiments. It&rsquo;s finally time to end the experimentation and produce the product.</p>
+<p>Yep, 22 years of experiments! Given that I&rsquo;ve opted to employ the least modern looking webpage out there (really a matter of my own personal taste) one might be doubtful of my website building experience. That&rsquo;s fair; but, to be sure, I started my first HTML programming on GeoCities and have employed HTML as a regular part of my computer habits ever since. Since GeoCities I have used these technologies for various websites over the years:
+                Blogger,
+                Weebly,
+                Wordpress (both .org and .com),
+                HostGator,
+                Wix,
+                Ruby (and Rails),
+                Google Sites,
+                GitHub,
+                and, most recently, Google Cloud.</p>
+<p>The aim of each website was usually centered on documenting my own thoughts and experiences; however, I also put together sites for the purposes of content and affliate marketing, survey and statistical analysis, and as a way to host my writing portfolio.</p>
+<p>After running full speed ahead into studying computer science at University, the need to maintain a stable website that will allow me to post professional content is greater than ever. So, the reason for such a basic looking website is purely one of function; i.e. I wanted to employ technology that would be easy to maintain, robust in its lifespan, and (again, personal preference) highly text-based and &ldquo;minimalist.&rdquo;</p>
+<p>So yeah, welcome to my website. While you may have already known that I keep a nerdy (and overly personal) website at antonrasmussen.com, what you&rsquo;re getting here is (hopefully) a bit more professional. Whether you were directed here from one of my social media sites (Twitter, Pinterest , etc.) or you were directed here from my University page (yay for redirects!); whether you have found me through my code on GitHub or will find my GitHub via this website, you are most certainly welcome to explore my content, connect with me, and/or send me suggestions for articles.</p>
+<h2>My Promise</h2>
+<ul>
+<li>Opinions are my own.</li>
+<li>Sources are pulled from multiple and varied places.</li>
+<li>I try to maintain a learning mindset and a willingness to make mistakes.</li>
+<li>I value organization and consistency though I tend to struggle with both.</li>
+<li>Whatever can be shared and/or given away will be.</li>
+</ul>
+<h2>Angry with the World, but Hopeful</h2>
+<p>Truth is, one of my main motivations for getting this site going is to have a permanant home for (professional) ranting about my experiences through higher education [both academically and administratively]. I&rsquo;ve been a higher ed student since the fall of 2001 and am, therefore, about to enter my 16th year as a college student. In that time a lot has changed about me, about how higher ed institutions work, and about the world.</p>
+<p>Moreover, I think it&rsquo;s time to take the advice of books like the Millenial Game Plan.</p>
+<p>Some great quotes from the Millennial Game Plan:
+- &ldquo;Embrace the craftsman mindset&rdquo;
+- &ldquo;Ask, &lsquo;What can I offer the world?&rsquo;&rdquo;
+- &ldquo;Spend your time on work that will force you to stretch&rdquo;</p>
+<p>So, even though I may come across as a bit miffed or even angry at times, my goal is based in service. I don&rsquo;t appreciate lazy work and I want to ensure that whatever I produce isn&rsquo;t just for my own benefit.</p>
+<h2></h2>]]></description>
+    </item>
+    <item>
+      <title>Libraries are the Shiz</title>
+      <link>https://antonrasmussen.com/articles/2017-08-01-libraries-are-the-shiz.html</link>
+      <guid isPermaLink="true">https://antonrasmussen.com/articles/2017-08-01-libraries-are-the-shiz.html</guid>
+      <pubDate>Tue, 01 Aug 2017 12:00:00 GMT</pubDate>
+      <description><![CDATA[<h2>What Libraries Do For Me</h2>
+<p>There&rsquo;s a whole world out there, and you and I aren&rsquo;t gonna see most of it. Even the extremely prodigious travelers of our modern world will only catch a glimpse of worn ports and crowded shopping districts, tourist destinations where it&rsquo;s easy to get comfortable and easier to excuse missing that planned excursion for the next round of tapas and a topped-off wine glass.</p>
+<p>For my fellow citizens, there&rsquo;s a whole country out there we will never see. There&rsquo;s a beauty in small farmhouses, city penthouses, and every space between. From coast to coast there&rsquo;s more love lost between us and the people we&rsquo;ll never meet than the combined love of all our best relationships. There are a 1,000 warm places we would quickly trade to call home, if only we were fortunate enough to sit by their brick hearths soaking up the knowledge of what is instead of what could be.</p>
+<p>It sounds sad, pessimistic and cynical even. Sure. It sounds like I&rsquo;m saying we&rsquo;re going to miss out on most of what&rsquo;s worth experiencing. Well, how could we not with such vast splendor and with such great distances between people and places? Sad, but true; as it goes&hellip;</p>
+<p>But, all&rsquo;s not lost. We have hope; we have our wits; we have these miraculous organs incased in strong skulls, which provide the opportunity for intimate experiences with every angel and angelic disposition we&rsquo;ll never actually get to meet: we&rsquo;ve our imaginations and plenty of time to exercise &lsquo;em!</p>
+<p>Just as the verisimilitude of time&rsquo;s finiteness increases through age, so too does wisdom provide insight as to how we may optimize each hour, minute, and second we&rsquo;ve been gifted. How grand! And here&rsquo;s where the true gift must be acknowledged: public libraries.</p>
+<p>Sound funny that such gaping holes of experience and human contact might be ameliorated by something as simple as that box of bricks you pass every day, but never find reason to enter? Well, you&rsquo;re not alone. While I was an early explorer of my local community college&rsquo;s library, and while days spent going with my mom to the Central library are burned into every memorial picturebook of my youth, the truth is, I used to talk a lot of shit about libraries.</p>
+<p>In about my&hellip; idk, fourth or fifth? year as an undergrad, I was compelled to take a library science class. One of the most embarassing experiences of my college years was realizing I was on the bad side of an argument regarding the utility of libraries. Granted, it was probably silly to get into a verbal spat with a professor of library science in a library science class about the value of libaries; but, for anyone who knows my general lack of compunction for argument of any form, it probably isn&rsquo;t that surprising. What also shouldn&rsquo;t be surprising to anyone who&rsquo;s held me at bay with sound reasoning is that I quite quickly came to realize how wrong I was.</p>
+<p>Basically, my argument went like this: &ldquo;Why should I bother going to the school library when I can just go to Borders and drink banging coffee, read brand new books for free, and then buy (and keep forever) said book should it interest me enough?&rdquo; Nevermind the fact that within two years Borders would end up going out of business (the only time I actually made out on any of their sales prices), I totally failed to realize just how MUCH modern public libraries (and, to be sure&ndash;even more so&ndash;college libraries) offer to the curious hearts of our world.</p>
+<h2>What Do You Think About Libraries?</h2>
+<p>You can probably guess based on the title of this article my general feelings about libaries. But, what do you think?</p>
+<p>Send me a Tweet or share this article in a Facebook post about what <em>you</em> think about libraries. Did you ever see them as useless and come to find them as super valuable? Are you still not that excited about libaries?</p>
+<h2>Nearly Two Decades of Learning How to Learn</h2>
+<p>Getting life in order</p>
+<p>Getting order in order</p>
+<p>Selecting classes</p>
+<p>Work-Life Balance</p>
+<p>Adapted from Cal Newport&rsquo;s &ldquo;How to Become a Straight A Student&rdquo;</p>
+<p>Study Basics:
+- Manage Time
+- Create a semester calendar (I use Google Calendar)
+- Carry paper or notbook for to-dos and reminders that come up during the day
+- Take time each morning to put previous day&rsquo;s to-dos and reminders on calandar
+- Come up with realistic times in which to complete the day&rsquo;s tasks</p>
+<p>Note: It may be necessary to move tasks to future dates based on a conservative time estimate
+- Avoid Procrastination
+- Use a notebook for tracking daily goals and whether or not they were accomplished
+- Eat healthy
+- Think of the biggest/hardest/most difficult tasks as missions
+- Build work routines and stay consistent
+- Plan the hard days out in advance, and break up the difficult tasks over time
+- When, Where, How
+- Morning and afternoons are your friends; but, don&rsquo;t forget to use short breaks between scheduled events (like classes) wisely
+- Silence is goldy; find quite places to study
+- Study for one hour at a time then take a ten to fifteen minute break</p>]]></description>
+    </item>
+  </channel>
+</rss>

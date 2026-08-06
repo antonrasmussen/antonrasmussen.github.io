@@ -34,8 +34,8 @@ toy_story = media.Movie(	"Toy Story",
 	 appears to end with none of them having been replaced, but then Andy
 	 receives a surprise gift - an electronic toy space ranger action figure
 	 named Buzz Lightyear, who thinks he is an actual space ranger.""",
-	"https://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg",
-	"https://www.youtube.com/watch?v=KYz2wyBy3kc")
+	"./posters/Toy_Story.jpg",
+	"https://www.youtube.com/watch?v=CxwTLktovTU")
 
 a_bugs_life = media.Movie(	"A Bug's Life",
 	"""Ant Island is a colony of ants led by the Queen and her daughter,
@@ -47,8 +47,8 @@ a_bugs_life = media.Movie(	"A Bug's Life",
 	 compensation. When Flik suggests in earnest that they seek help from
 	 other stronger bugs, the other ants see it as an opportunity to remove
 	 him and send him off.""",
-	"https://upload.wikimedia.org/wikipedia/en/c/cc/A_Bug%27s_Life.jpg",
-	"https://www.youtube.com/watch?v=Ljk2YJ53_WI")
+	"./posters/A_Bugs_Life.jpg",
+	"https://www.youtube.com/watch?v=mE35XQFxbeo")
 
 toy_story_2 = media.Movie(	"Toy Story 2",
 	"""Andy prepares to go to cowboy camp with Woody, but while playing with
@@ -60,8 +60,8 @@ toy_story_2 = media.Movie(	"Toy Story 2",
 	 Buzz Lightyear and the rest of Andy's toys identify the thief from a
 	 commercial to be Al McWhiggin, the owner of Al's Toy Barn. Buzz, Hamm,
 	 Mr. Potato Head, Slinky Dog, and Rex set out to rescue Woody.""",
-	"https://upload.wikimedia.org/wikipedia/en/c/c0/Toy_Story_2.jpg",
-	"https://www.youtube.com/watch?v=h1ZMmk_yCno")
+	"./posters/Toy_Story_2.jpg",
+	"https://www.youtube.com/watch?v=0gDFIGAXZa4")
 
 monsters_inc = media.Movie(	"Monsters, Inc.",
 	"""The city of Monstropolis in the monster world is powered by energy
@@ -75,8 +75,8 @@ monsters_inc = media.Movie(	"Monsters, Inc.",
 	 is determined to find a solution. James P. 'Sulley' Sullivan is the"
 	 organization's top scarer, but his chief rival Randall Boggs is"
 	 close behind.""",
-	"https://upload.wikimedia.org/wikipedia/en/6/63/Monsters_Inc.JPG",
-	"https://www.youtube.com/watch?v=Ue_SfrHHBAc")
+	"./posters/Monsters_Inc.jpg",
+	"https://www.youtube.com/watch?v=6tCxnHCqqxg")
 
 finding_nemo = media.Movie(	"Finding Nemo",
 	"""Two ocellaris clownfish, Marlin and Coral, admire their new home in the
@@ -84,8 +84,8 @@ finding_nemo = media.Movie(	"Finding Nemo",
 	 attacks, knocking Marlin unconscious. He wakes up to find that Coral
 	 and all but one of the eggs have been eaten by the barracuda.
 	 Marlin names this last egg Nemo, a name that Coral liked.""",
-	"https://upload.wikimedia.org/wikipedia/en/2/29/Finding_Nemo.jpg",
-	"https://www.youtube.com/watch?v=AXoZdTe9YFs")
+	"./posters/Finding_Nemo.jpg",
+	"https://www.youtube.com/watch?v=SPHfeNgogVs")
 
 the_incredibles = media.Movie( "The Incredibles",
 	"""Public opinion turns against superheroes--also called 'Supers'--due to
@@ -96,8 +96,8 @@ the_incredibles = media.Movie( "The Incredibles",
 	 Bob dislikes suburbia and his white-collar job, and with his friend
 	 Lucius Best, formerly known as Frozone, occasionally relives his glory
 	 days by secretly acting as vigilantes at night.""",
-	"https://upload.wikimedia.org/wikipedia/en/e/ec/The_Incredibles.jpg",
-	"https://www.youtube.com/watch?v=eZbzbC9285I")
+	"./posters/The_Incredibles.jpg",
+	"https://www.youtube.com/watch?v=-UaGUdNJdRQ")
 
 cars = media.Movie(	"Cars",
 	"""In a world populated by anthropomorphic vehicles, the last race of the
@@ -117,8 +117,8 @@ cars = media.Movie(	"Cars",
 	 highway to find Mack, but ends up lost in the run-down desert town of
 	 Radiator Springs, while inadvertently ruining the pavement of its
 	 main road.""",
-	"https://upload.wikimedia.org/wikipedia/en/3/34/Cars_2006.jpg",
-	"https://www.youtube.com/watch?v=WGByijP0Leo")
+	"./posters/Cars.jpg",
+	"https://www.youtube.com/watch?v=W_H7_tDHFE8")
 
 ratatouille = media.Movie(	"Ratatouille",
 	"""Remy is an idealistic and ambitious young rat, gifted with highly
@@ -129,8 +129,8 @@ ratatouille = media.Movie(	"Ratatouille",
 	 separated from his family in the panic. He ends up in the sewers of
 	 Paris and eventually finds himself at a skylight overlooking the
 	 kitchen of Gusteau's restaurant.""",
-	"https://upload.wikimedia.org/wikipedia/en/5/50/RatatouillePoster.jpg",
-	"https://www.youtube.com/watch?v=1yKqLNnxGZw")
+	"./posters/Ratatouille.jpg",
+	"https://www.youtube.com/watch?v=NgsQ8mVkN8w")
 
 wall_e = media.Movie(	"Wall-E",
 	"""In 2805, Earth is an abandoned planet covered in trash, with its people
@@ -146,8 +146,8 @@ wall_e = media.Movie(	"Wall-E",
 	 standby mode. WALL-E, confused, unsuccessfully tries to reactivate her.
 	 The ship then returns to collect EVE, and with WALL-E clinging on,
 	 returns to its mothership, the starliner Axiom.""",
-	"https://upload.wikimedia.org/wikipedia/en/c/c2/WALL-Eposter.jpg",
-	"https://www.youtube.com/watch?v=ZisWjdjs-gM")
+	"./posters/WALLE.jpg",
+	"https://www.youtube.com/watch?v=alIq_wG9FNk")
 
 up = media.Movie(	"Up",
 	"""In 1940, nine-year-old Carl Fredricksen idolizes famous explorer Charles
@@ -157,8 +157,8 @@ up = media.Movie(	"Up",
 	 Ellie, also a Muntz fan. She confides to Carl her desire to move her
 	 'clubhouse'--an abandoned house in the neighborhood--to a cliff
 	 overlooking Paradise Falls.""",
-	"https://upload.wikimedia.org/wikipedia/en/0/05/Up_%282009_film%29.jpg",
-	"https://www.youtube.com/watch?v=ORFWdXl_zJ4")
+	"./posters/Up.jpg",
+	"https://www.youtube.com/watch?v=HWEW_qTLSEE")
 
 toy_story_3 = media.Movie(	"Toy Story 3",
 	"""Seventeen-year-old Andy is about to leave for college, and his toys have
@@ -169,7 +169,7 @@ toy_story_3 = media.Movie(	"Toy Story 3",
 	 throw them away, decide to climb into a donation box with Molly's
 	 discarded toy, Barbie, bound for Sunnyside Daycare. Woody follows them,
 	 but is unable to convince them of the mistake.""",
-	"https://upload.wikimedia.org/wikipedia/en/6/69/Toy_Story_3_poster.jpg",
+	"./posters/Toy_Story_3.jpg",
 	"https://www.youtube.com/watch?v=2BlMNH1QTeE")
 
 cars_2 = media.Movie(	"Cars 2",
@@ -181,8 +181,8 @@ cars_2 = media.Movie(	"Cars 2",
 	 World Grand Prix, led by its creator, Sir Miles Axlerod. McQueen,
 	 and his best friend Mater -- along with Luigi, Guido, Fillmore, and
 	 Sarge -- depart for Tokyo for the first race of the Grand Prix.""",
-	"https://upload.wikimedia.org/wikipedia/en/7/7f/Cars_2_Poster.jpg",
-	"https://www.youtube.com/watch?v=oFTfAdauCOo")
+	"./posters/Cars_2.jpg",
+	"https://www.youtube.com/watch?v=lg5hj2c5Nkk")
 
 brave = media.Movie(	"Brave",
 	"""In Medieval Scotland, Merida, a young princess of the clan Dunbroch,
@@ -192,8 +192,8 @@ brave = media.Movie(	"Brave",
 	 will-o'-the-wisp. Soon afterward, Mor'du, a huge demon bear, attacks
 	 the family. Merida flees on horseback with Elinor, while Fergus fends
 	 off Mor'du, though the fight costs him one of his legs.""",
-	"https://upload.wikimedia.org/wikipedia/en/9/96/Brave_Poster.jpg",
-	"https://www.youtube.com/watch?v=5fPmKfcaaWk")
+	"./posters/Brave.jpg",
+	"https://www.youtube.com/watch?v=TEHWDA_6e3M")
 
 monsters_university = media.Movie(	"Monsters University",
 	"""Michael 'Mike' Wazowski, a young 7-year-old monster, aspires to become
@@ -211,7 +211,7 @@ monsters_university = media.Movie(	"Monsters University",
 	 them to accidentally break Dean Abigail Hardscrabble's cherished Scream
 	 Can. Hardscrabble fails both of them immediately, stating that Sulley
 	 does not study enough, and Mike is not scary enough.""",
-	"https://upload.wikimedia.org/wikipedia/en/2/2a/Monsters_University_poster_3.jpg", # NOQA
+	"./posters/Monsters_University.jpg", # NOQA
 	"https://www.youtube.com/watch?v=xBzPioph8CI")
 
 inside_out = media.Movie(	"Inside Out",
@@ -227,7 +227,7 @@ inside_out = media.Movie(	"Inside Out",
 	 cheerful childhood, but since she and the other emotions do not
 	 understand Sadness' purpose, she frequently tries to keep Sadness away
 	 from the console.""",
-	"https://upload.wikimedia.org/wikipedia/en/0/0a/Inside_Out_%282015_film%29_poster.jpg", # NOQA
+	"./posters/Inside_Out.jpg", # NOQA
 	"https://www.youtube.com/watch?v=yRUAzGQ3nSY")
 
 the_good_dinosaur = media.Movie(	"The Good Dinosaur",
@@ -244,7 +244,7 @@ the_good_dinosaur = media.Movie(	"The Good Dinosaur",
 	 him, and sets him free. Disappointed, Henry takes Arlo to track the
 	 caveboy, leading them into a ravine. Henry saves Arlo from a flash
 	 flood before being swept away and killed.""",
-	"https://upload.wikimedia.org/wikipedia/en/8/80/The_Good_Dinosaur_poster.jpg", # NOQA
+	"./posters/The_Good_Dinosaur.jpg", # NOQA
 	"https://www.youtube.com/watch?v=O-RgquKVTPE")
 
 finding_dory = media.Movie(	"Finding Dory",
@@ -253,7 +253,7 @@ finding_dory = media.Movie(	"Finding Dory",
 	 them due to her short-term memory loss. In the flashback of the previous
 	 film, Finding Nemo, she joins Marlin - a clownfish looking for his
 	 missing son Nemo - after accidentally swimming into him.""",
-	"https://upload.wikimedia.org/wikipedia/en/3/3e/Finding_Dory.jpg",
+	"./posters/Finding_Dory.jpg",
 	"https://www.youtube.com/watch?v=JhvrQeY3doI")
 
 cars_3 = media.Movie(	"Cars 3",
@@ -266,7 +266,7 @@ cars_3 = media.Movie(	"Cars 3",
 	 catch up to Storm and the other leaders, his tire blows-out and he
 	 suffers a violent, nearly fatal rollover crash, leaving him badly
 	 injured, while Storm becomes the new Piston Cup Champion.""",
-	"https://upload.wikimedia.org/wikipedia/en/9/94/Cars_3_poster.jpg",
+	"./posters/Cars_3.jpg",
 	"https://www.youtube.com/watch?v=2LeOH9AGJQM")
 
 coco = media.Movie(	"Coco",
@@ -285,7 +285,7 @@ coco = media.Movie(	"Coco",
 	 and infant Coco - at the center of the family ofrenda: her husband
 	 (whose face is ripped out) was holding the guitar famously used by
 	 Ernesto.""",
-	"https://upload.wikimedia.org/wikipedia/en/9/98/Coco_%282017_film%29_poster.jpg", # NOQA
+	"./posters/Coco.jpg", # NOQA
 	"https://www.youtube.com/watch?v=xlnPHQ3TLX8")
 
 incredibles_2 = media.Movie(	"Incredibles 2",
@@ -295,25 +295,19 @@ incredibles_2 = media.Movie(	"Incredibles 2",
 	 watch their children Violet, Dash, and Jack-Jack. The family
 	 struggles to maintain normal lives while they remain unaware of
 	 Jack-Jack's powers.""",
-	"https://upload.wikimedia.org/wikipedia/en/2/27/The_Incredibles_2.jpg",
-	"https://www.youtube.com/watch?v=fa6coq9JHE8")
+	"./posters/Incredibles_2.jpg",
+	"https://www.youtube.com/watch?v=i5qOzqD9Rms")
 
-toy_story_4 = media.Movie(	"Toy Story 4 [No Trailer Available]", 
-	"""The film will focus on the romance between Woody and Bo Peep,
-	 building on Bo Peep's absence from Toy Story 3,
-	 with Woody and Buzz trying to find her and bring her home.""",
-	"https://www.gstatic.com/tv/thumb/movieposters/12004128/p12004128_p_v8_aa.jpg", # NOQA
-	#No Trailer
-	"")
+toy_story_4 = media.Movie(	"Toy Story 4",
+	"""Woody, Buzz, and the rest of Andy's toys have found a new home with
+	 Bonnie. When Bonnie adds a reluctant new toy named Forky to her room,
+	 a road trip alongside old and new friends reveals how big the world
+	 can be for a toy.""",
+	"./posters/Toy_Story_4.jpg",
+	"https://www.youtube.com/watch?v=wmiIUN-7qhE")
 
-untitled_film = media.Movie(	"Untitled Film [No Trailer Available]",
-	"TBA.",
-	"https://static1.squarespace.com/static/58c6e8979f745642578bc439/t/58c6ed3b5016e1907a00aa39/1489517575818/", # NOQA
-	#No Trailer
-	"")
-
-#List of all Pixar Films
-##Source: https://en.wikipedia.org/wiki/List_of_Pixar_films
+# List of Pixar films through Toy Story 4
+## Source: https://en.wikipedia.org/wiki/List_of_Pixar_films
 
 movies = [toy_story,
 	a_bugs_life,
@@ -336,9 +330,7 @@ movies = [toy_story,
 	coco,
 	incredibles_2,
 	toy_story_4,
-	untitled_film, # March 13, 2020
-	untitled_film, # June 19, 2020
-	untitled_film # June 18, 2021
 ]
 
-fresh_tomatoes.open_movies_page(movies)
+if __name__ == "__main__":
+	fresh_tomatoes.open_movies_page(movies)
