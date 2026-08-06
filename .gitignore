@@ -1,7 +1,42 @@
+# Legacy / local scratch
 /git_ignore/*
+
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~
+
+# Logs / crash dumps
+*.log
+debug.log
+
+# Env / secrets (never publish)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+credentials.json
+**/secrets/
+
+# Personal archive exports (keep local only)
 *-ant0nj3ff-*.zip
 instagram-*.zip
 threads-*.zip
 facebook-*.zip
+signal-*.zip
+*.db.enc
